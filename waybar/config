@@ -1,0 +1,44 @@
+{
+    "modules-left": ["custom/icon", "hyprland/workspaces"],
+    "modules-right": ["battery", "backlight", "pulseaudio", "network", "clock#date", "clock#time"],
+    "custom/icon": {
+        "format": "󰣇",
+        "tooltip": false
+    },
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "tooltip-format": "Brightness: {percent}%",
+        "format-icons": [""]
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": " {volume}%",
+        "format-icons": {
+            "default": ["", "", ""]
+        }
+    },
+    "network": {
+        "format-wifi": " {essid}",
+        "tooltip-format": "Signal: {signalStrength}%",
+        "format-disconnected": " Disconnected"
+    },
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-full": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip-format": "Battery: {capacity}%",
+        "tooltip-format-charging": "Charging: {capacity}%"
+    },
+    "clock#date": {
+        "timezone": "Europe/Stockholm",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": " {:%b %d}"
+    },
+    "clock#time": {
+        "timezone": "Europe/Stockholm",
+        "tooltip-format": "Europe/Stockholm ({:%Z})",
+        "format": " {:%H:%M}"
+    }
+}

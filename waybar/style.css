@@ -1,0 +1,102 @@
+@import "mocha.css";
+
+* {
+  font-family: 'NotoSansM Nerd Font Propo';
+  font-size: 16px;
+}
+
+tooltip {
+  border-radius: 10px;
+}
+
+tooltip label {
+  color: @text;
+}
+
+#waybar {
+  background-color: transparent;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+  margin: 10px;
+  margin-bottom: 0;
+}
+
+#clock:hover,
+#backlight:hover,
+#pulseaudio:hover,
+#network:hover,
+#battery:hover {
+  background-color: @surface1;
+}
+
+#clock,
+#backlight,
+#pulseaudio,
+#network,
+#battery {
+  padding: 7px 12px;
+  margin-left: 10px;
+  border-radius: 10px;
+  background-color: @surface0;
+}
+
+#custom-icon {
+  padding: 7px 12px;
+  margin-right: 10px;
+  border-radius: 10px;
+  background-color: @surface0;
+  color: @blue;
+}
+
+#workspaces {
+  background-color: @surface0;
+  border-radius: 10px;
+}
+
+#workspaces button {
+  padding: 7px 16px;
+  color: @overlay1;
+  border: none;
+  border-radius: 10px;
+}
+
+#workspaces button.active {
+  color: @text;
+}
+
+#workspaces button:hover {
+  /* Remove predefined styles */
+  box-shadow: none;
+  text-shadow: none;
+  background: none;
+  transition: none;
+
+  background-color: @surface1;
+}
+
+#battery {
+  color: @yellow;
+}
+
+#backlight {
+  color: @flamingo;
+}
+
+#pulseaudio {
+  color: @pink;
+}
+
+#network {
+  color: @mauve;
+}
+
+#clock.date {
+  color: @lavender;
+}
+
+#clock.time {
+  color: @blue;
+}
