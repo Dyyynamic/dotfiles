@@ -29,7 +29,8 @@
         "format-plugged": " {capacity}%",
         "format-icons": ["", "", "", "", ""],
         "tooltip-format": "Battery: {capacity}%",
-        "tooltip-format-charging": "Charging: {capacity}%"
+        "tooltip-format-charging": "Charging: {capacity}%",
+        "interval": 5
     },
     "clock#date": {
         "timezone": "Europe/Stockholm",
