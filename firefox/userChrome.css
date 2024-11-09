@@ -1,0 +1,63 @@
+/*
+    Vertical tabs styling for Firefox
+
+    To enable go to about:config in firefox and enable:
+    - sidebar.revamp and sidebar.verticalTabs for vertical tabs
+    - toolkit.legacyUserProfileCustomizations.stylesheets for custom CSS
+
+    Optional: Right click toolbar and check "titlebar" to disable titlebar.
+
+    Links:
+    - https://www.reddit.com/r/firefox/comments/1dz3pjx/vertical_tabs_now_available_in_firefox_beta_129/
+    - https://www.reddit.com/r/FirefoxCSS/wiki/index/tutorials/
+*/
+
+/* Sidebar */
+
+/* Allow sidebar wrapper to become smaller */
+.wrapper {
+  min-width: 0 !important;
+}
+
+/* Set tab width when sidebar is expanded */
+#tabbrowser-tabs[expanded] {
+  width: 160px !important;
+}
+
+/* Change the contents of the "Customize sidebar" button to just "Customize" */
+button[title="Customize sidebar"] span.labelled slot {
+  display: none;
+}
+
+button[title="Customize sidebar"] span.labelled label::before {
+  content: "Customize";
+}
+
+/* Tab Box */
+
+/* Add margin and rounding to the tab box */
+#main-window:not([inFullscreen]) #tabbrowser-tabbox {
+  margin-right: 8px !important;
+  margin-bottom: 8px !important;
+  clip-path: inset(0 round 8px);
+}
+
+/* Add background color behind the tab box */
+#browser {
+  background-color: var(--toolbar-bgcolor);
+}
+
+/* Private Browsing (No Titlebar) */
+
+/* Hide private browsing indicator in titlebar */
+#main-window:not([tabsintitlebar]) #private-browsing-indicator-with-label {
+  display: none;
+}
+
+/* Instead, add a gradient to the nav-bar */
+#main-window[privatebrowsingmode="temporary"]:not([tabsintitlebar]) #nav-bar {
+  background-image: linear-gradient(
+    hsl(275, 100%, 42%, 0.25),
+    var(--toolbar-bgcolor)
+  );
+}
