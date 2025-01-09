@@ -33,6 +33,13 @@ button[title="Customize sidebar"] span.labelled label::before {
   content: "Customize";
 }
 
+/* Toolbar */
+
+/* Change toolbar background color back to toolbar-bgcolor >:( */
+.browser-toolbox-background {
+  background-color: var(--toolbar-bgcolor) !important;
+}
+
 /* Tab Box */
 
 /* Add margin and rounding to the tab box */
