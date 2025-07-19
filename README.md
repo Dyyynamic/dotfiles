@@ -1,16 +1,17 @@
 # Dotfiles (GNOME)
 
 ## Terminal
-- kitty
-- zsh
-- starship
+- Ghostty
+- Zsh
+- Starship
+- Fastfetch
 
 ## Essential Apps
 
 **Dock (in order)**
-- Kitty
+- Ghostty
 - Nautilus
-- Firefox
+- Zen Browser
 - GIMP
 - Steam
 - Spotify
@@ -18,7 +19,14 @@
 - Vesktop
 
 **Other**
-- VSCode
+- Visual Studio Code
+- Lutris
+- Prism Launcher
+- Extension Manager
+- Gear Lever
+- ProtonPlus
+- Timeshift
+- VIA
 
 ## Extensions
 - Blur my Shell
@@ -42,6 +50,16 @@
 - Switch applications - `Disabled`
 - Switch windows - `Alt+Tab`
 
+**Screenshots**
+- Take a screenshot - `Shift+Super+P`
+- Take a screenshot interactively - `Super+P`
+- Take a screenshot of a window - `Alt+Super+P`
+
+**System**
+- Log out - `Shift+Super+L`
+- Power off - `Shift+Super+Q`
+- Restart - `Shift+Super+R`
+
 **Windows**
 - Close window - `Super+Q`
 - Maximize window - `Disabled`
@@ -50,4 +68,4 @@
 - View split on right - `Disabled`
 
 **Custom Shortcuts**
-- Launch Terminal - `Super+T`
+- Launch ghostty - `Super+T`

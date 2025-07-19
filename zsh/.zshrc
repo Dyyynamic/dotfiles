@@ -12,9 +12,15 @@ compinit
 eval "$(starship init zsh)"
 
 # Aliases
-alias neofetch="fastfetch"
+alias ls="ls --color=auto"
+alias grep="grep --color=auto"
+alias media="cd /run/media/dynamic/Media"
+alias sd="./Programs/stable-diffusion-webui-forge/webui.sh"
+alias ff="fastfetch"
 
 bindkey '\e[1;5C' forward-word   # Ctrl + Right
 bindkey '\e[1;5D' backward-word  # Ctrl + Left
 bindkey '^H' backward-kill-word  # Ctrl + Backspace
 bindkey '^[[3;5~' kill-word      # Ctrl + Delete
+
+fastfetch
