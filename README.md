@@ -55,6 +55,13 @@
 - Take a screenshot interactively - `Super+P`
 - Take a screenshot of a window - `Alt+Super+P`
 
+> [!IMPORTANT]
+> The default `Super+P` keybind conflicts with GNOME's `switch-monitor`
+> keybinding.
+>
+> To disable it, use dconf to search for `switch-monitor`, disable
+> `Use default value` and set `Custom value` to `[]`.
+
 **System**
 - Log out - `Shift+Super+L`
 - Power off - `Shift+Super+Q`
