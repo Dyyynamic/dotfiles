@@ -1,5 +1,12 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "source": "~/.config/fastfetch/copland-logo.txt",
+    "color": {
+      "1": "cyan",
+      "2": "blue"
+    }
+  },
   "modules": [
     "title",
     "separator",
