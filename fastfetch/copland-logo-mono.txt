@@ -1,5 +1,5 @@
-                    /ss\
-                    \ss/
+                    .ss.
+                    'ss'
                . . . . . . .
             . . . . . . . . . .
            . . . .-ssssss-. . . .
@@ -12,8 +12,8 @@
   ':sss: . :sss. .  '--'  . .sss: . :sss:'
      ':ss:. ':sss:. .  . .:sss:' .:ss:'
         '::' . 'sss-.  .-sss' . '::'
-  /ss\     . . . :sss  sss: . . .     /ss\
-  \ss/      . . .:sss .sss:. . .      \ss/
+  .ss.     . . . :sss  sss: . . .     .ss.
+  'ss'      . . .:sss .sss:. . .      'ss'
          .-.   . :sss. sss: .   .-.
          .sss.   .sss  sss.   .sss.
            .ssssssss    ssssssss.
