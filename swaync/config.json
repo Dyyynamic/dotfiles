@@ -1,0 +1,37 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+
+  "positionX": "center",
+  "positionY": "top",
+  "control-center-margin-top": 10,
+  "fit-to-screen": false,
+  "control-center-width": 500,
+  "control-center-height": 600,
+  "notification-window-preferred-output": "DP-2",
+
+  "widgets": [
+    "title",
+    "mpris",
+    "notifications",
+    "dnd"
+  ],
+  "widget-config": {
+    "title": {
+      "text": "Notifications",
+      "clear-all-button": true,
+      "button-text": "Clear"
+    },
+    "mpris": {
+      "blacklist": [],
+      "autohide": false,
+      "show-album-art": "always",
+      "loop-carousel": false
+    },
+    "notifications": {
+      "vexpand": true
+    },
+    "dnd": {
+      "text": "Do Not Disturb"
+    }
+  }
+}

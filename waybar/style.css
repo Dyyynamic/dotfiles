@@ -1,0 +1,51 @@
+@define-color bg rgba(0, 0, 0, 0.5);
+@define-color fg #ffffff;
+@define-color fg2 #bfbfbf;
+@define-color fg3 #808080;
+@define-color hover rgba(255, 255, 255, 0.15);
+
+#waybar {
+  font-family: 'NotoSans Nerd Font Propo';
+  font-size: 16px;
+  font-weight: bold;
+  color: @fg;
+  background-color: @bg;
+}
+
+#clock,
+#network {
+  padding: 4px 12px;
+  margin: 4px;
+  border-radius: 99px;
+}
+
+#clock:hover,
+#network:hover {
+  background-color: @hover;
+}
+
+#workspaces {
+  margin: 4px;
+}
+
+#workspaces button {
+  color: @fg3;
+  font-size: 12px;
+
+  padding: 4px 4px;
+  border: none;
+}
+
+#workspaces button:hover {
+  /* Remove default styles */
+  box-shadow: none;
+  text-shadow: none;
+  background: none;
+  transition: none;
+
+  color: @fg2;
+}
+
+#workspaces button.visible {
+  color: @fg;
+}

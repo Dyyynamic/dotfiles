@@ -1,0 +1,29 @@
+{
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["network"],
+    "network": {
+        "format-wifi": " {essid}",
+        "tooltip" : false,
+        "format-disconnected": "   Disconnected"
+    },
+    "clock": {
+        "timezone": "Europe/Stockholm",
+        "tooltip" : false,
+        "format": "{:%b %d %H:%M}",
+        "on-click": "swaync-client -t -sw"
+    },
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "urgent": "",
+            "active": "",
+            "visible": "",
+            "default": "",
+            "empty": ""
+        },
+        "on-scroll-up": "hyprctl dispatch split-cycleworkspaces -1",
+        "on-scroll-down": "hyprctl dispatch split-cycleworkspaces +1",
+        "all-outputs": false
+    }
+}

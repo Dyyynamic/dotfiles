@@ -1,0 +1,138 @@
+:root {
+  --cc-bg: rgb(53, 53, 53);
+  --noti-bg: 71, 71, 71;
+  --noti-bg-alpha: 1;
+  --noti-bg-hover: rgb(78, 78, 78);
+  --noti-bg-active: rgb(94, 94, 94);
+  --noti-close-bg-active: rgb(110, 110, 110);
+
+  --notification-group-icon-size: 28px;
+
+  --border-radius: 16px;
+
+  --font-size-body: 14px;
+  --font-size-summary: 14px;
+}
+
+* {
+  font-family: 'NotoSans Nerd Font Propo';
+}
+
+.close-button:active {
+  background: var(--noti-close-bg-active);
+}
+
+.notification-row .notification-background {
+  padding: 4px 0;
+}
+
+.notification-row .notification-background .notification {
+  border: none;
+}
+
+.notification-row .notification-background .notification .notification-default-action {
+  padding: 12px;
+}
+
+.notification-row .notification-background .notification .notification-default-action:active {
+  background: var(--noti-bg-active);
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content .image {
+  margin: 0;
+  margin-right: 12px;
+  background-color: rgba(0, 0, 0, 0.5);
+  -gtk-icon-transform: scale;
+  object-fit: cover;
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content .inline-reply .inline-reply-button:active {
+  background: var(--noti-bg-active);
+}
+
+.notification-group:focus {
+  background: none;
+}
+
+.notification-group .notification-group-close-button .close-button {
+  margin: 12px 8px;
+}
+
+.notification-group .notification-group-buttons,
+.notification-group .notification-group-headers {
+  margin: 4px 0;
+}
+
+.notification-group .notification-group-headers .notification-group-header {
+  font-size: 1.2rem;
+}
+
+.notification-group.collapsed .notification-row:nth-last-child(2) .notification {
+  background-color: rgb(63, 63, 63);
+}
+
+.notification-group.collapsed .notification-row:nth-last-child(3) .notification {
+  background-color: rgb(58, 58, 58);
+}
+
+.notification-group.collapsed:active .notification-row:not(:only-child):last-child .notification {
+  background-color: var(--noti-bg-active);
+}
+
+.control-center {
+  outline: 1px solid rgb(58, 58, 58);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.control-center .control-center-list .notification {
+  box-shadow: none;
+}
+
+.control-center .control-center-list .notification .notification-default-action:active,
+.control-center .control-center-list .notification .notification-action:active {
+  background-color: var(--noti-bg-active);
+}
+
+.floating-notifications .notification {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+}
+
+/*** Widgets ***/
+.widget {
+  margin: 16px;
+  padding: 0;
+}
+
+.widget:not(:last-child) {
+  margin-bottom: 0;
+}
+
+/* Title widget */
+.widget-title > label {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* DND widget */
+.widget-dnd label {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Mpris widget */
+.widget-mpris .widget-mpris-player {
+  margin: 0;
+  box-shadow: none;
+}
+
+.widget-mpris .widget-mpris-player .mpris-background {
+  transform: scale(1.1);
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay button:active {
+  background: var(--noti-bg-active);
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay .widget-mpris-album-art {
+  box-shadow: none;
+}
