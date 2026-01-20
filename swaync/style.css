@@ -1,13 +1,25 @@
+@import "colors.css";
+
 :root {
-  --cc-bg: rgb(53, 53, 53);
-  --noti-bg: 71, 71, 71;
-  --noti-bg-alpha: 1;
-  --noti-bg-hover: rgb(78, 78, 78);
-  --noti-bg-active: rgb(94, 94, 94);
-  --noti-close-bg-active: rgb(110, 110, 110);
+  --cc-bg: @background;
+
+  --noti-bg: @surface_container;
+  --noti-bg-darker: @surface_container_low;
+  --noti-bg-hover: @surface_container_high;
+  --noti-bg-active: @surface_container_highest;
+
+  --noti-close-bg: @surface_container;
+  --noti-close-bg-hover: @surface_container_high;
+  --noti-close-bg-active: @surface_container_highest;
+
+  --text-color: @on_surface;
+  --text-color-disabled: alpha(@on_surface, 0.6);
+  --bg-selected: @primary;
 
   --notification-group-icon-size: 28px;
 
+  --outline: 1px solid @surface_container;
+  --border: none;
   --border-radius: 16px;
 
   --font-size-body: 14px;
@@ -27,7 +39,7 @@
 }
 
 .notification-row .notification-background .notification {
-  border: none;
+  background: var(--noti-bg);
 }
 
 .notification-row .notification-background .notification .notification-default-action {
@@ -44,6 +56,10 @@
   background-color: rgba(0, 0, 0, 0.5);
   -gtk-icon-transform: scale;
   object-fit: cover;
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content .inline-reply .inline-reply-button {
+  background: var(--noti-bg);
 }
 
 .notification-row .notification-background .notification .notification-default-action .notification-content .inline-reply .inline-reply-button:active {
@@ -67,12 +83,16 @@
   font-size: 1.2rem;
 }
 
-.notification-group.collapsed .notification-row:nth-last-child(2) .notification {
-  background-color: rgb(63, 63, 63);
+.notification-group.collapsed .notification-row .notification {
+  background-color: var(--noti-bg);
 }
 
-.notification-group.collapsed .notification-row:nth-last-child(3) .notification {
-  background-color: rgb(58, 58, 58);
+.notification-group.collapsed .notification-row:not(:last-child) .notification {
+  background-color: var(--noti-bg-darker);
+}
+
+.notification-group.collapsed:hover .notification-row:not(:only-child):last-child .notification {
+  background-color: var(--noti-bg-hover);
 }
 
 .notification-group.collapsed:active .notification-row:not(:only-child):last-child .notification {
@@ -80,7 +100,7 @@
 }
 
 .control-center {
-  outline: 1px solid rgb(58, 58, 58);
+  outline: var(--outline);
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -117,6 +137,10 @@
 .widget-dnd label {
   font-size: 1rem;
   font-weight: bold;
+}
+
+.widget-dnd switch:checked {
+  background-color: var(--bg-selected);
 }
 
 /* Mpris widget */

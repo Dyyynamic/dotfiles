@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Arch Update Notifier
-Comment=Notify of available updates at login
-Exec=/home/dynamic/Documents/Code/dotfiles/update-notifier/update-notifier.sh
-X-GNOME-Autostart-enabled=true
-Terminal=false
