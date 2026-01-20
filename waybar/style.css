@@ -40,6 +40,10 @@
   border: none;
 }
 
+#workspaces button.empty {
+  color: alpha(@fg, 0.25);
+}
+
 #workspaces button:hover {
   /* Remove default styles */
   box-shadow: none;
