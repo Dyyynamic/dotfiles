@@ -6,6 +6,9 @@ if [[ -z "$WALLPAPER" ]]; then
     exit 1
 fi
 
+HYPRPAPER_CONF="$(readlink -f "$HOME/.config/hypr/hyprpaper.conf")"
+HYPRLOCK_CONF="$(readlink -f "$HOME/.config/hypr/hyprlock.conf")"
+
 # Generate new palette
 matugen image $WALLPAPER
 
@@ -16,7 +19,7 @@ hyprctl hyprpaper wallpaper ,"$WALLPAPER"
 gawk -i inplace -v new_bg="$WALLPAPER" '
 /path[[:space:]]*=/ { sub(/=.*/, "= " new_bg) }
 { print }
-' "$HOME/.config/hypr/hyprpaper.conf"
+' "$HYPRPAPER_CONF"
 
 # Update hyprlock config
 gawk -i inplace -v new_bg="$WALLPAPER" '
@@ -24,4 +27,4 @@ gawk -i inplace -v new_bg="$WALLPAPER" '
 /}/ { in_bg=0 }
 in_bg && /path[[:space:]]*=/ { sub(/=.*/, "= " new_bg) }
 { print }
-' "$HOME/.config/hypr/hyprlock.conf"
+' "$HYPRLOCK_CONF"
