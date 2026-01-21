@@ -1,9 +1,9 @@
 # Matugen generated files
 hypr/colors.conf
-ghostty/themes
+ghostty/themes/Matugen
 waybar/colors.css
 swaync/colors.css
-walker/themes
+walker/themes/Matugen/colors.css
 
 # Host-specific configs
 hypr/monitors.conf
