@@ -1,9 +1,14 @@
 [config]
 
+[config.wallpaper]
+command = "hyprctl"
+arguments = ["hyprpaper", "wallpaper", ","]
+set = true
+
 [templates.hyprland]
 input_path = '~/.config/matugen/templates/hyprland-colors.conf'
 output_path = '~/.config/hypr/colors.conf'
-post_hook = 'hyprctl reload'
+post_hook = 'hyprctl reload --quiet'
 
 [templates.ghostty]
 input_path = '~/.config/matugen/templates/ghostty'
@@ -18,7 +23,7 @@ post_hook = 'pkill -SIGUSR2 waybar'
 [templates.swaync]
 input_path = '~/.config/matugen/templates/colors.css'
 output_path = '~/.config/swaync/colors.css'
-post_hook = 'swaync-client --reload-css'
+post_hook = 'swaync-client --reload-css > /dev/null'
 
 [templates.walker]
 input_path = '~/.config/matugen/templates/colors.css'

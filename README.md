@@ -35,8 +35,8 @@ Create symlinks using the setup script:
 ./setup.sh
 ```
 
-Change wallpaper using the change-wallpaper script:
+Change wallpaper using matugen:
 
 ```bash
-change-wallpaper /path/to/wallpaper.jpg
+matugen image /path/to/wallpaper.jpg
 ```

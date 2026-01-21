@@ -42,7 +42,11 @@ link "$DOTFILES/zsh/.zshrc" "$HOME/.zshrc"
 link "$DOTFILES/starship.toml" "$HOME/.config/starship.toml"
 
 # Scripts
-link "$DOTFILES/utils/change-wallpaper.sh" "$HOME/.local/bin/change-wallpaper"
 link "$DOTFILES/utils/update-notifier.sh" "$HOME/.local/bin/update-notifier"
 
 echo "All symlinks created!"
+
+# Apply wallpaper
+matugen image "$DOTFILES/wallpapers/tomosaki.jpg"
+
+echo "Applied wallpaper!"
