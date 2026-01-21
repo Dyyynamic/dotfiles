@@ -36,6 +36,8 @@ ln -sf "$DOTFILES/avatar.png" "$DOTFILES/hypr/avatar.png"
 # Configs
 link "$DOTFILES/fastfetch" "$HOME/.config/fastfetch"
 link "$DOTFILES/ghostty" "$HOME/.config/ghostty"
+link "$DOTFILES/gtk-3.0" "$HOME/.config/gtk-3.0"
+link "$DOTFILES/gtk-4.0" "$HOME/.config/gtk-4.0"
 link "$DOTFILES/hypr" "$HOME/.config/hypr"
 link "$DOTFILES/matugen" "$HOME/.config/matugen"
 link "$DOTFILES/swaync" "$HOME/.config/swaync"

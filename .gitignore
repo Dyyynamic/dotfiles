@@ -1,6 +1,8 @@
 # Matugen generated files
 hypr/colors.conf
 ghostty/themes/Matugen
+gtk-3.0/colors.css
+gtk-4.0/colors.css
 waybar/colors.css
 swaync/colors.css
 walker/themes/Matugen/colors.css
