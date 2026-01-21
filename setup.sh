@@ -1,6 +1,7 @@
 #!/bin/bash
 
-DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+HOST=$(uname -n)
 
 link() {
     local src="$1"
@@ -26,19 +27,22 @@ link() {
     ln -s "$src" "$dest"
 }
 
+# Host-specific configs
+ln -sf "$DOTFILES/hosts/$HOST/monitors.conf" "$DOTFILES/hypr/monitors.conf"
+
 # Configs
-link "$DOTFILES_DIR/fastfetch" "$HOME/.config/fastfetch"
-link "$DOTFILES_DIR/ghostty" "$HOME/.config/ghostty"
-link "$DOTFILES_DIR/hypr" "$HOME/.config/hypr"
-link "$DOTFILES_DIR/matugen" "$HOME/.config/matugen"
-link "$DOTFILES_DIR/swaync" "$HOME/.config/swaync"
-link "$DOTFILES_DIR/walker" "$HOME/.config/walker"
-link "$DOTFILES_DIR/waybar" "$HOME/.config/waybar"
-link "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
-link "$DOTFILES_DIR/starship.toml" "$HOME/.config/starship.toml"
+link "$DOTFILES/fastfetch" "$HOME/.config/fastfetch"
+link "$DOTFILES/ghostty" "$HOME/.config/ghostty"
+link "$DOTFILES/hypr" "$HOME/.config/hypr"
+link "$DOTFILES/matugen" "$HOME/.config/matugen"
+link "$DOTFILES/swaync" "$HOME/.config/swaync"
+link "$DOTFILES/walker" "$HOME/.config/walker"
+link "$DOTFILES/waybar" "$HOME/.config/waybar"
+link "$DOTFILES/zsh/.zshrc" "$HOME/.zshrc"
+link "$DOTFILES/starship.toml" "$HOME/.config/starship.toml"
 
 # Scripts
-link "$DOTFILES_DIR/utils/change-wallpaper.sh" "$HOME/.local/bin/change-wallpaper"
-link "$DOTFILES_DIR/utils/update-notifier.sh" "$HOME/.local/bin/update-notifier"
+link "$DOTFILES/utils/change-wallpaper.sh" "$HOME/.local/bin/change-wallpaper"
+link "$DOTFILES/utils/update-notifier.sh" "$HOME/.local/bin/update-notifier"
 
 echo "All symlinks created!"
