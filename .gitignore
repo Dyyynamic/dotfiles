@@ -5,5 +5,8 @@ waybar/colors.css
 swaync/colors.css
 walker/themes
 
-# Host-specific config
+# Host-specific configs
 hypr/monitors.conf
+
+# User-specific configs
+hypr/avatar.png

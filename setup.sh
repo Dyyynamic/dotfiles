@@ -30,6 +30,9 @@ link() {
 # Host-specific configs
 ln -sf "$DOTFILES/hosts/$HOST/monitors.conf" "$DOTFILES/hypr/monitors.conf"
 
+# User-specific configs
+ln -sf "$DOTFILES/avatar.png" "$DOTFILES/hypr/avatar.png"
+
 # Configs
 link "$DOTFILES/fastfetch" "$HOME/.config/fastfetch"
 link "$DOTFILES/ghostty" "$HOME/.config/ghostty"
