@@ -1,0 +1,2 @@
+alias media="cd /mnt/Media"
+alias sd="~/Programs/sdnext/webui.sh --lowvram"

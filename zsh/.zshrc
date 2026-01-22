@@ -18,10 +18,12 @@ export PATH="$HOME/.local/bin:$PATH"
 alias ls="ls --color=auto"
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
-alias media="cd /run/media/dynamic/Media"
-alias sd="~/Programs/sdnext/webui.sh --lowvram"
 alias ff="fastfetch"
-alias logout="gnome-session-quit --no-prompt"
+
+# Host-specific aliases
+if [[ -f "$HOME/.zsh_aliases" ]]; then
+    source "$HOME/.zsh_aliases"
+fi
 
 # Keybinds
 bindkey '\e[1;5C' forward-word   # Ctrl + Right

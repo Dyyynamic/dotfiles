@@ -9,6 +9,7 @@ walker/themes/Matugen/colors.css
 
 # Host-specific configs
 hypr/monitors.conf
+hypr/env.conf
 
 # User-specific configs
 hypr/avatar.png

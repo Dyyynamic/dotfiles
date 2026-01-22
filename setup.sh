@@ -7,18 +7,26 @@ link() {
     local src="$1"
     local dest="$2"
 
+    # Skip if the source file doesn't exist
+    if [[ ! -e "$src" ]]; then
+        echo "Skipping non-existent source: $src"
+        return 0
+    fi
+
     mkdir -p "$(dirname "$dest")"
 
-    if [ -L "$dest" ]; then
+    # Skip if already linked
+    if [[ -L "$dest" ]]; then
         local target
         target="$(readlink "$dest")"
-        if [ "$target" = "$src" ]; then
+        if [[ "$target" = "$src" ]]; then
             echo "Already linked: $dest"
             return 0
         fi
     fi
 
-    if [ -e "$dest" ] || [ -L "$dest" ]; then
+    # Backup if file already exists
+    if [[ -e "$dest" ]] || [[ -L "$dest" ]]; then
         echo "Backing up existing path: $dest -> $dest.bak"
         mv "$dest" "$dest.bak"
     fi
@@ -28,10 +36,12 @@ link() {
 }
 
 # Host-specific configs
-ln -sf "$DOTFILES/hosts/$HOST/monitors.conf" "$DOTFILES/hypr/monitors.conf"
+link "$DOTFILES/hosts/$HOST/monitors.conf" "$DOTFILES/hypr/monitors.conf"
+link "$DOTFILES/hosts/$HOST/env.conf" "$DOTFILES/hypr/env.conf"
+link "$DOTFILES/hosts/$HOST/zsh_aliases" "$HOME/.zsh_aliases"
 
 # User-specific configs
-ln -sf "$DOTFILES/avatar.png" "$DOTFILES/hypr/avatar.png"
+link "$DOTFILES/avatar.png" "$DOTFILES/hypr/avatar.png"
 
 # Configs
 link "$DOTFILES/fastfetch" "$HOME/.config/fastfetch"
