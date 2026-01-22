@@ -53,7 +53,7 @@ link "$DOTFILES/matugen" "$HOME/.config/matugen"
 link "$DOTFILES/swaync" "$HOME/.config/swaync"
 link "$DOTFILES/walker" "$HOME/.config/walker"
 link "$DOTFILES/waybar" "$HOME/.config/waybar"
-link "$DOTFILES/zsh/.zshrc" "$HOME/.zshrc"
+link "$DOTFILES/zshrc" "$HOME/.zshrc"
 link "$DOTFILES/starship.toml" "$HOME/.config/starship.toml"
 
 # Scripts
