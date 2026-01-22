@@ -51,7 +51,8 @@ link "$DOTFILES/utils/update-notifier.sh" "$HOME/.local/bin/update-notifier"
 
 echo "All symlinks created!"
 
-# Apply wallpaper
+# Theme
+gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 matugen image "$DOTFILES/wallpapers/tomosaki.jpg"
 
-echo "Applied wallpaper!"
+echo "Applied theme!"
