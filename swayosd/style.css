@@ -1,0 +1,4 @@
+@import "colors.css";
+
+@define-color theme_bg_color @background;
+@define-color theme_fg_color @on_surface;

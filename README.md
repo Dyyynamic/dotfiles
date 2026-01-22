@@ -19,6 +19,7 @@
 
 - [Waybar](https://github.com/Alexays/Waybar)
 - [SwayNotificationCenter](https://github.com/ErikReider/SwayNotificationCenter)
+- [SwayOSD](https://github.com/ErikReider/SwayOSD)
 - [Walker](https://github.com/abenz1267/walker)
 - [Elephant](https://github.com/abenz1267/elephant)
 
