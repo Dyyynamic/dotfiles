@@ -37,6 +37,7 @@ link() {
 
 # Host-specific configs
 link "$DOTFILES/hosts/$HOST/monitors.conf" "$DOTFILES/hypr/monitors.conf"
+link "$DOTFILES/hosts/$HOST/default_apps.conf" "$DOTFILES/hypr/default_apps.conf"
 link "$DOTFILES/hosts/$HOST/env.conf" "$DOTFILES/hypr/env.conf"
 link "$DOTFILES/hosts/$HOST/zsh_aliases" "$HOME/.zsh_aliases"
 
