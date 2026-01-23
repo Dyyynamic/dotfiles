@@ -46,6 +46,7 @@ link "$DOTFILES/hosts/$HOST/zsh_aliases" "$HOME/.zsh_aliases"
 link "$DOTFILES/avatar.png" "$DOTFILES/hypr/avatar.png"
 
 # Configs
+link "$DOTFILES/better-control" "$HOME/.config/better-control"
 link "$DOTFILES/fastfetch" "$HOME/.config/fastfetch"
 link "$DOTFILES/ghostty" "$HOME/.config/ghostty"
 link "$DOTFILES/gtk-3.0" "$HOME/.config/gtk-3.0"
