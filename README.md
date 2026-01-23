@@ -25,6 +25,7 @@
 
 **Theme**
 
+- [adw-gtk3](https://github.com/lassekongo83/adw-gtk3)
 - [Matugen](https://github.com/InioX/matugen)
 - [Noto Nerd Font](https://www.nerdfonts.com/font-downloads)
 - [Papirus Icons](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
