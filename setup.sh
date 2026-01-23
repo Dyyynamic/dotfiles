@@ -36,6 +36,7 @@ link() {
 }
 
 # Host-specific configs
+link "$DOTFILES/hosts/$HOST/bookmarks" "$DOTFILES/gtk-3.0/bookmarks"
 link "$DOTFILES/hosts/$HOST/monitors.conf" "$DOTFILES/hypr/monitors.conf"
 link "$DOTFILES/hosts/$HOST/default_apps.conf" "$DOTFILES/hypr/default_apps.conf"
 link "$DOTFILES/hosts/$HOST/env.conf" "$DOTFILES/hypr/env.conf"
