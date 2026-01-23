@@ -67,6 +67,7 @@ echo "All symlinks created!"
 
 # Theme
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+gsettings set org.gnome.desktop.wm.preferences button-layout ':' # Remove close button
 matugen image "$DOTFILES/wallpapers/tomosaki.jpg"
 
 echo "Applied theme!"
