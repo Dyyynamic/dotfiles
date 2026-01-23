@@ -1,11 +1,11 @@
 {
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["network"],
-    "network": {
-        "format-wifi": " {essid}",
-        "tooltip" : false,
-        "format-disconnected": "   Disconnected"
+    "modules-right": ["network", "pulseaudio", "battery"],
+    "hyprland/workspaces": {
+        "format": "",
+        "on-scroll-up": "hyprctl dispatch split-cycleworkspaces -1",
+        "on-scroll-down": "hyprctl dispatch split-cycleworkspaces +1"
     },
     "clock": {
         "timezone": "Europe/Stockholm",
@@ -13,17 +13,26 @@
         "format": "{:%b %d %H:%M}",
         "on-click": "swaync-client -t -sw"
     },
-    "hyprland/workspaces": {
+    "network": {
+        "format-wifi": "{icon}",
+        "format-icons": ["󰤯", "󰤟", "󰤥", "󰤨"],
+        "format-disconnected": "󰤮",
+        "tooltip-format": "Network: {essid}"
+    },
+    "pulseaudio": {
         "format": "{icon}",
-        "format-icons": {
-            "urgent": "",
-            "active": "",
-            "visible": "",
-            "default": "",
-            "empty": ""
-        },
-        "on-scroll-up": "hyprctl dispatch split-cycleworkspaces -1",
-        "on-scroll-down": "hyprctl dispatch split-cycleworkspaces +1",
-        "all-outputs": false
+        "format-icons": ["", "", ""],
+        "format-muted": "",
+        "tooltip-format": "Volume: {volume}%"
+    },
+    "battery": {
+        "format": "{icon}",
+        "format-full": "{icon}",
+        "format-icons": ["", "", "", "", ""],
+        "format-charging": "",
+        "format-plugged": "",
+        "tooltip-format": "Battery: {capacity}%",
+        "tooltip-format-charging": "Charging: {capacity}%",
+        "interval": 5
     }
 }

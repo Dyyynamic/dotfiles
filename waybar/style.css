@@ -13,18 +13,6 @@
   background-color: @bg;
 }
 
-#clock,
-#network {
-  padding: 4px 12px;
-  margin: 4px;
-  border-radius: 99px;
-  background-color: @module;
-}
-
-#clock:hover {
-  background-color: @module-hover;
-}
-
 #workspaces {
   padding: 0 8px;
   margin: 4px;
@@ -35,7 +23,6 @@
 #workspaces button {
   color: alpha(@fg, 0.5);
   font-size: 10px;
-
   padding: 4px 2px;
   border: none;
 }
@@ -56,4 +43,28 @@
 
 #workspaces button.visible {
   color: @fg;
+}
+
+#clock {
+  margin: 4px;
+  padding: 4px 12px;
+  border-radius: 99px;
+  background-color: @module;
+}
+
+#clock:hover {
+  background-color: @module-hover;
+}
+
+.modules-right {
+  margin: 4px;
+  padding: 4px 6px;
+  border-radius: 99px;
+  background-color: @module;
+}
+
+#network,
+#pulseaudio,
+#battery {
+  margin: 0 6px;
 }
