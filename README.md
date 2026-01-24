@@ -5,6 +5,7 @@
 ## Requirements
 
 - [Arch Linux](https://archlinux.org/)
+- Stow
 
 **Hyprland**
 - [Hyprland](https://hypr.land/)
