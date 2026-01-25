@@ -12,6 +12,7 @@
 | Bar           | [Waybar](https://github.com/Alexays/Waybar)                    |
 | Launcher      | [Walker](https://github.com/abenz1267/walker)                  |
 | Notifications | [SwayNC](https://github.com/ErikReider/SwayNotificationCenter) |
+| Wallpaper     | [Swww](https://github.com/LGFae/swww)                          |
 | Lock Screen   | [Hyprlock](https://wiki.hypr.land/Hypr-Ecosystem/hyprlock/)    |
 | Theme         | [Matugen](https://github.com/InioX/matugen)                    |
 | Terminal      | [Ghostty](https://ghostty.org/)                                |

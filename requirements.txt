@@ -7,7 +7,6 @@ fastfetch
 ghostty
 hyprland
 hyprlock
-hyprpaper
 hyprpolkitagent
 hyprshot
 hyprsunset
@@ -19,6 +18,7 @@ starship
 stow
 swaync
 swayosd
+swww
 ttf-noto-nerd
 walker
 waybar
