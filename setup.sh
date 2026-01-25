@@ -2,7 +2,7 @@
 set -e
 
 DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-HOST=$(uname -n)
+HOST="$DOTFILES/hosts/$(uname -n)"
 
 # Install yay
 if ! command -v yay &> /dev/null; then
@@ -34,8 +34,12 @@ stow -d "$DOTFILES" -t ~/.config config --no-folding
 stow -d "$DOTFILES" -t ~ home
 
 # Host-specific config
-stow -d "$DOTFILES/hosts/$HOST" -t ~/.config config --no-folding
-stow -d "$DOTFILES/hosts/$HOST" -t ~ home
+if [ -d "$HOST/config" ]; then
+    stow -d "$HOST" -t ~/.config config --no-folding
+fi
+if [ -d "$HOST/home" ]; then
+    stow -d "$HOST" -t ~ home
+fi
 
 # Scripts
 stow -d "$DOTFILES" -t ~/.local/bin utils
