@@ -1,5 +1,4 @@
 adw-gtk-theme
-better-control-git
 elephant
 elephant-desktopapplications
 elephant-providerlist
