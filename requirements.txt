@@ -9,7 +9,7 @@ hyprlock
 hyprpolkitagent
 hyprshot
 hyprsunset
-matugen-bin
+matugen
 nautilus
 nautilus-python
 papirus-icon-theme
