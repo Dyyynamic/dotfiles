@@ -18,15 +18,25 @@
 - Enpass
 - Vesktop
 
-**Other**
-- Visual Studio Code
+**Gaming**
 - Lutris
 - Prism Launcher
-- Extension Manager
-- Gear Lever
+- Flightcore
+- osu!
+- r2modman
 - ProtonPlus
+
+**Other**
+- Visual Studio Code
+- Extension Manager
+- Gnome Tweaks
+- Gear Lever
+- Mission Center
 - Timeshift
 - VIA
+- Godot
+- Audacity
+- OBS
 
 ## Extensions
 - Blur my Shell
@@ -34,7 +44,6 @@
 - Rounded Window Corners Reborn
 - Tiling Assistant
 - Unblank lock screen
-- Unite
 - Window Is Ready - Notification Remover
 
 ## Theming
