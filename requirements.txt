@@ -1,7 +1,10 @@
 adw-gtk-theme
 elephant
+elephant-calc
+elephant-clipboard
 elephant-desktopapplications
 elephant-providerlist
+elephant-symbols
 fastfetch
 ghostty
 hyprland
