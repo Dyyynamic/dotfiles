@@ -16,12 +16,15 @@ hyprsunset
 matugen
 nautilus
 nautilus-python
+noto-fonts-cjk
+noto-fonts-emoji
 papirus-icon-theme
 starship
 stow
 swaync
 swayosd
 swww
+ttf-ms-fonts
 ttf-noto-nerd
 walker
 waybar
