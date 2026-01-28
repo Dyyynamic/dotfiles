@@ -7,6 +7,7 @@ elephant-providerlist
 elephant-symbols
 fastfetch
 ghostty
+gnome-keyring
 hyprland
 hyprlock
 hyprpicker

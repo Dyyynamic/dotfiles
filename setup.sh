@@ -31,6 +31,7 @@ fi
 
 # Systemd services
 sudo systemctl enable --now swayosd-libinput-backend.service
+systemctl --user enable --now gcr-ssh-agent.socket
 
 # Config
 stow -d "$DOTFILES" -t ~/.config config --no-folding
