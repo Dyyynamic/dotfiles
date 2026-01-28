@@ -22,4 +22,5 @@ swww
 ttf-noto-nerd
 walker
 waybar
+zen-browser-bin
 zsh
