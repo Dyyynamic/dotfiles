@@ -29,6 +29,9 @@ if [ "$SHELL" != "$(which zsh)" ]; then
     chsh -s "$(which zsh)"
 fi
 
+# Systemd services
+sudo systemctl enable --now swayosd-libinput-backend.service
+
 # Config
 stow -d "$DOTFILES" -t ~/.config config --no-folding
 stow -d "$DOTFILES" -t ~ home
