@@ -1,9 +1,9 @@
 @import "colors.css";
 
 @define-color bg            @background;
-@define-color module        @surface_container;
-@define-color module-hover  @surface_container_high;
-@define-color fg            @on_surface;
+@define-color module        mix(@background, @on_background, 0.1);
+@define-color module-hover  mix(@background, @on_background, 0.15);
+@define-color fg            @on_background;
 
 #waybar {
   font-family: 'NotoSans Nerd Font Propo';
@@ -50,6 +50,8 @@
   padding: 4px 12px;
   border-radius: 99px;
   background-color: @module;
+
+  transition: background linear 0.1s;
 }
 
 #clock:hover {

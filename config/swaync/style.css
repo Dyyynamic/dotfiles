@@ -3,22 +3,22 @@
 :root {
   --cc-bg: @background;
 
-  --noti-bg: @surface_container;
-  --noti-bg-darker: @surface_container_low;
-  --noti-bg-hover: @surface_container_high;
-  --noti-bg-active: @surface_container_highest;
+  --noti-bg: mix(@background, @on_background, 0.1);
+  --noti-bg-darker: mix(@background, @on_background, 0.05);
+  --noti-bg-hover: mix(@background, @on_background, 0.15);
+  --noti-bg-active: mix(@background, @on_background, 0.3);
 
-  --noti-close-bg: @surface_container;
-  --noti-close-bg-hover: @surface_container_high;
-  --noti-close-bg-active: @surface_container_highest;
+  --noti-close-bg: transparent;
+  --noti-close-bg-hover: alpha(@on_background, 0.15);
+  --noti-close-bg-active: alpha(@on_background, 0.3);
 
-  --text-color: @on_surface;
-  --text-color-disabled: alpha(@on_surface, 0.6);
+  --text-color: @on_background;
+  --text-color-disabled: alpha(@on_background, 0.6);
   --bg-selected: @primary;
 
   --notification-group-icon-size: 28px;
 
-  --outline: 1px solid @surface_container;
+  --outline: 1px solid mix(@background, @on_background, 0.05);
   --border: none;
   --border-radius: 20px;
   --border-radius-inner: 12px;
