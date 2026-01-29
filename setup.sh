@@ -46,7 +46,7 @@ if [ -d "$HOST/home" ]; then
 fi
 
 # Scripts
-stow -d "$DOTFILES" -t ~/.local/bin utils
+stow -d "$DOTFILES" -t ~/.local/bin scripts
 
 echo "All symlinks created!"
 
