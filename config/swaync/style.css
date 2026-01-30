@@ -60,9 +60,7 @@
 .notification-row .notification-background .notification .notification-default-action .notification-content .image {
   margin: 0;
   margin-right: 12px;
-  background-color: rgba(0, 0, 0, 0.5);
-  -gtk-icon-transform: scale;
-  object-fit: cover;
+  background-color: var(--noti-bg-darker);
 }
 
 .notification-row .notification-background .notification .notification-default-action .notification-content .inline-reply .inline-reply-entry {
