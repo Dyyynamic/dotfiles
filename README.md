@@ -20,6 +20,9 @@
 
 ## Installation
 
+> [!IMPORTANT]
+> This script assumes a fresh Arch Linux installation with a running Hyprland session.
+
 Run the setup script:
 ```bash
 ./setup.sh
