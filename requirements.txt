@@ -19,6 +19,7 @@ nautilus
 nautilus-python
 noto-fonts-cjk
 noto-fonts-emoji
+pacman-contrib
 papirus-icon-theme
 starship
 stow
