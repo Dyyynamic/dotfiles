@@ -65,7 +65,6 @@ stow -d "$DOTFILES" -t "$HOME/.local/bin" scripts
 
 echo "Enabling systemd services..."
 
-sudo systemctl enable --now swayosd-libinput-backend.service
 systemctl --user enable --now gcr-ssh-agent.socket
 
 echo "Setting gsettings..."
