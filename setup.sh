@@ -47,6 +47,11 @@ stow -d "$DOTFILES" -t "$HOME" home
 # Host-specific config
 HOST="$DOTFILES/hosts/$(uname -n)"
 
+if [[ ! -d "$HOST" ]]; then
+    echo "No host-specific config detected, scaffolding..."
+    cp -r "$DOTFILES/hosts/default" "$HOST"
+fi
+
 if [[ -d "$HOST/config" ]]; then
     stow -d "$HOST" -t "$HOME/.config" config --no-folding
 fi

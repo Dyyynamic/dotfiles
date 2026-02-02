@@ -28,6 +28,8 @@ Run the setup script:
 ./setup.sh
 ```
 
+Host-specific configs (monitors, default apps, etc.) can be modified under `hosts/<hostname>`.
+
 ## Usage
 
 Change wallpaper using matugen:
