@@ -5,6 +5,7 @@ elephant-clipboard
 elephant-desktopapplications
 elephant-providerlist
 elephant-symbols
+elephant-unicode
 fastfetch
 ghostty
 gnome-keyring
