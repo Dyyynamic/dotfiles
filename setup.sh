@@ -66,6 +66,8 @@ stow -d "$DOTFILES" -t "$HOME/.local/bin" scripts
 echo "Enabling systemd services..."
 
 systemctl --user enable --now gcr-ssh-agent.socket
+sudo systemctl enable --now paccache.timer
+sudo systemctl enable --now systemd-oomd
 
 echo "Setting gsettings..."
 
