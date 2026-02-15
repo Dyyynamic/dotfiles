@@ -1,4 +1,5 @@
 adw-gtk-theme
+darkly-bin
 elephant
 elephant-calc
 elephant-clipboard
@@ -22,6 +23,8 @@ noto-fonts-cjk
 noto-fonts-emoji
 pacman-contrib
 papirus-icon-theme
+qt5ct-kde
+qt6ct-kde
 starship
 stow
 swaync
