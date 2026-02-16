@@ -3,6 +3,9 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 
+# Exports
+export PATH="$HOME/.local/bin:$PATH"
+
 # Command Completion
 zstyle :compinstall filename '/home/dynamic/.zshrc'
 autoload -Uz compinit
@@ -11,8 +14,8 @@ compinit
 # Starship
 eval "$(starship init zsh)"
 
-# Exports
-export PATH="$HOME/.local/bin:$PATH"
+# Plugins
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Aliases
 alias ls="ls --color=auto"
@@ -32,11 +35,3 @@ bindkey '^H' backward-kill-word  # Ctrl + Backspace
 bindkey '^[[3;5~' kill-word      # Ctrl + Delete
 
 fastfetch
-
-# pnpm
-export PNPM_HOME="/home/dynamic/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end

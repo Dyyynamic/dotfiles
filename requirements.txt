@@ -36,3 +36,4 @@ walker
 waybar
 zen-browser-bin
 zsh
+zsh-autosuggestions
