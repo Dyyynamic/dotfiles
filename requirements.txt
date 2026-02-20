@@ -22,7 +22,9 @@ nautilus-python
 noto-fonts-cjk
 noto-fonts-emoji
 pacman-contrib
+papirus-folders
 papirus-icon-theme
+pastel
 qt5ct-kde
 qt6ct-kde
 starship

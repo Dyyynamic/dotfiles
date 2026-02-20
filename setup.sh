@@ -95,6 +95,7 @@ if [[ -f "$CURRENT_WALLPAPER" ]]; then
 fi
 
 matugen image "$WALLPAPER" --quiet
+papirus-folders -C matugen --theme Papirus
 
 echo "Setup complete!"
 echo "⚠ Hyprland needs to reload to launch required tools."
