@@ -36,6 +36,8 @@ ttf-ms-fonts
 ttf-noto-nerd
 walker
 waybar
+xdg-desktop-portal-gtk
+xdg-desktop-portal-hyprland
 zen-browser-bin
 zsh
 zsh-autosuggestions
