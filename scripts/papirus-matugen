@@ -12,7 +12,7 @@ DARK="$(pastel mix $ACCENT black --fraction 0.35 | pastel format hex)"
 for size in $SIZES; do
     SRC="$PAPIRUS/$size/places"
 
-    for f in "$SRC"/folder-blue{,-*}.svg; do
+    for f in "$SRC"/folder-blue{,-*}.svg "$SRC"/user-blue-*.svg; do
         (
             new="${f##*/}"
             new="${new/blue/matugen}"
