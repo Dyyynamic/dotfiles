@@ -3,9 +3,6 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 
-# Exports
-export PATH="$HOME/.local/bin:$PATH"
-
 # Command Completion
 zstyle :compinstall filename '/home/dynamic/.zshrc'
 autoload -Uz compinit
