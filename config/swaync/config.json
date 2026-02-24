@@ -22,7 +22,7 @@
       "button-text": "Clear"
     },
     "mpris": {
-      "blacklist": [],
+      "blacklist": ["playerctld"],
       "autohide": false,
       "show-album-art": "always",
       "loop-carousel": false
