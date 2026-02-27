@@ -1,7 +1,11 @@
 #!/bin/bash
 set -e
 
-DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOTFILES="$HOME/.dotfiles"
+
+if [ ! -d "$DOTFILES" ]; then
+    git clone https://github.com/Dyyynamic/dotfiles.git "$DOTFILES"
+fi
 
 echo "Installing yay..."
 

@@ -25,10 +25,10 @@
 
 Run the setup script:
 ```bash
-./setup.sh
+curl -fsSL https://raw.githubusercontent.com/Dyyynamic/dotfiles/hypr/setup.sh | bash
 ```
 
-Host-specific configs (monitors, default apps, etc.) can be modified under `hosts/<hostname>`.
+Host-specific configs (monitors, default apps, etc.) can be modified under `~/.dotfiles/hosts/<hostname>`.
 
 ## Usage
 
