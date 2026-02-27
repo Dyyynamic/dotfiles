@@ -3,24 +3,83 @@ set -e
 
 ACCENT="$1"
 
-PAPIRUS="/usr/share/icons/Papirus"
+PAPIRUS_SRC="/usr/share/icons/Papirus"
+PAPIRUS_DST="$HOME/.local/share/icons/Papirus"
 SIZES="22x22 24x24 32x32 48x48 64x64 96x96 128x128"
 
 MID="$(pastel mix $ACCENT black --fraction 0.8 | pastel format hex)"
 DARK="$(pastel mix $ACCENT black --fraction 0.35 | pastel format hex)"
 
-for size in $SIZES; do
-    SRC="$PAPIRUS/$size/places"
+declare -A LINKS=(
+    [folder-camera.svg]=folder-photo.svg
+    [folder-cloud.svg]=folder-mail-cloud.svg
+    [folder-decrypted.svg]=folder-unlocked.svg
+    [folder-encrypted.svg]=folder-locked.svg
+    [folder-gdrive.svg]=folder-google-drive.svg
+    [folder_home2.svg]=folder-image-people.svg
+    [folder-home.svg]=user-home.svg
+    [folder_home.svg]=user-home.svg
+    [folder-html.svg]=folder-network.svg
+    [folder-images.svg]=folder-pictures.svg
+    [folder-image.svg]=folder-images.svg
+    [folder_man.svg]=folder-documents.svg
+    [folder_open.svg]=folder-open.svg
+    [folder-photos.svg]=folder-photo.svg
+    [folder-picture.svg]=folder-pictures.svg
+    [folder-publicshare.svg]=folder-image-people.svg
+    [folder-sound.svg]=folder-music.svg
+    [folder-temp.svg]=folder-recent.svg
+    [folder-text.svg]=folder-documents.svg
+    [folder-txt.svg]=folder-documents.svg
+    [folder-videocamera.svg]=folder-video.svg
+    [folder_wordprocessing.svg]=folder-documents.svg
+    [gtk-directory.svg]=folder.svg
+    [gtk-network.svg]=folder-network.svg
+    [inode-directory.svg]=folder.svg
+    [insync-folder.svg]=folder-google-drive.svg
+    [knetattach.svg]=folder-remote.svg
+    [library-music.svg]=folder-music.svg
+    [network.svg]=folder-network.svg
+    [repository.svg]=folder-network.svg
+    [stock_folder.svg]=folder.svg
+    [stock_open.svg]=folder-open.svg
+)
 
-    for f in "$SRC"/folder-blue{,-*}.svg "$SRC"/user-blue-*.svg; do
+mkdir -p "$PAPIRUS_DST"
+
+if [ ! -f "$PAPIRUS_DST/index.theme" ]; then
+    cp "$PAPIRUS_SRC/index.theme" "$PAPIRUS_DST/"
+fi
+
+for size in $SIZES; do
+    src="$PAPIRUS_SRC/$size/places"
+    dst="$PAPIRUS_DST/$size/places"
+
+    mkdir -p "$dst"
+
+    # Create required symlinks
+    for name in "${!LINKS[@]}"; do
+        ln -sf "${LINKS[$name]}" "$dst/$name"
+    done
+
+    for f in "$src"/folder-blue{,-*}.svg "$src"/user-blue-*.svg; do
+        [ -f "$f" ] || continue
+
         (
-            new="${f##*/}"
-            new="${new/blue/matugen}"
+            base="${f##*/}"            # folder-blue.svg
+            new="${base/blue/matugen}" # folder-matugen.svg
+            link="${base/-blue/}"      # folder.svg
+
+            # Update icon colors
             sed -e "s/#5294e2/$ACCENT/g" \
                 -e "s/#4877b1/$MID/g" \
                 -e "s/#1d344f/$DARK/g" \
-                "$f" > "$SRC/$new"
+                "$f" > "$dst/$new"
+
+            # folder.svg -> folder-matugen.svg
+            ln -sf "$new" "$dst/$link"
         ) &
     done
 done
+
 wait
