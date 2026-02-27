@@ -8,6 +8,8 @@ elephant-providerlist
 elephant-symbols
 elephant-unicode
 fastfetch
+fd
+fzf
 ghostty
 gnome-keyring
 hyprland

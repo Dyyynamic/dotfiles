@@ -13,6 +13,11 @@ eval "$(starship init zsh)"
 
 # Plugins
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source <(fzf --zsh)
+
+export FZF_DEFAULT_COMMAND='fd'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_DEFAULT_OPTS="--border"
 
 # Aliases
 alias ls="ls --color=auto"
