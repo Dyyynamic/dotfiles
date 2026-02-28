@@ -3,37 +3,41 @@ set -e
 
 DOTFILES="$HOME/.dotfiles"
 
-if [ ! -d "$DOTFILES" ]; then
-    git clone https://github.com/Dyyynamic/dotfiles.git "$DOTFILES"
-fi
-
 echo "Installing yay..."
 
-if ! command -v yay &> /dev/null; then
-    sudo pacman -S --needed git base-devel
-    git clone https://aur.archlinux.org/yay.git
-    cd yay
-    makepkg -si
-    cd ..
-    rm -rf yay
+if ! command -v yay &>/dev/null; then
+    sudo pacman -S --needed --noconfirm git base-devel
+    git clone https://aur.archlinux.org/yay.git /tmp/yay
+    (cd /tmp/yay && makepkg -si --noconfirm)
+    rm -rf /tmp/yay
+fi
+
+echo "Cloning dotfiles..."
+
+if [ ! -d "$DOTFILES" ]; then
+    git clone https://github.com/Dyyynamic/dotfiles.git "$DOTFILES"
 fi
 
 echo "Installing required packages..."
 
 yay -S --needed --noconfirm - < "$DOTFILES/requirements.txt"
 
+echo "Creating home folders..."
+
+xdg-user-dirs-update
+
 echo "Installing Hyprland plugins..."
 
 if ! hyprpm list | grep -q split-monitor-workspaces; then
-    hyprpm add https://github.com/Duckonaut/split-monitor-workspaces
+    hyprpm update
+    echo "y" | hyprpm add https://github.com/zjeffer/split-monitor-workspaces
     hyprpm enable split-monitor-workspaces
-    hyprpm reload
 fi
 
 echo "Changing shell to zsh..."
 
 if [[ "$SHELL" != "$(which zsh)" ]]; then
-    chsh -s "$(which zsh)"
+    sudo chsh -s $(which zsh) $USER
 fi
 
 echo "Symlinking config files..."
@@ -65,6 +69,7 @@ if [[ -d "$HOST/home" ]]; then
 fi
 
 # Scripts
+mkdir -p "$HOME/.local/bin"
 stow -d "$DOTFILES" -t "$HOME/.local/bin" scripts
 
 echo "Enabling systemd services..."
@@ -82,9 +87,15 @@ gsettings set org.gnome.desktop.wm.preferences button-layout ':' # Remove window
 
 echo "Applying theme..."
 
-# Start swww-daemon
+# Start daemons
+
 if ! pgrep -x swww-daemon >/dev/null; then
-    swww-daemon 2>/dev/null &
+    swww-daemon &>/dev/null &
+fi
+
+if ! pgrep -x swaync >/dev/null; then
+    pkill dunst || true # Included by archinstall
+    swaync &>/dev/null &
 fi
 
 WALLPAPER="$DOTFILES/wallpapers/tomosaki.jpg"

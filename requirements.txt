@@ -1,4 +1,5 @@
 adw-gtk-theme
+cpio
 darkly-bin
 elephant
 elephant-calc
@@ -9,6 +10,7 @@ elephant-symbols
 elephant-unicode
 fastfetch
 fd
+frameworkintegration
 fzf
 ghostty
 gnome-keyring
@@ -19,7 +21,9 @@ hyprpolkitagent
 hyprshot
 hyprsunset
 jq
+less
 matugen
+meson
 nautilus
 nautilus-python
 noto-fonts-cjk
