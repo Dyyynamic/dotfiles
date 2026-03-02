@@ -1,4 +1,5 @@
 adw-gtk-theme
+brightnessctl
 cpio
 darkly-bin
 elephant
