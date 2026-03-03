@@ -35,6 +35,7 @@ bindkey '\e[1;5C' forward-word   # Ctrl + Right
 bindkey '\e[1;5D' backward-word  # Ctrl + Left
 bindkey '^H' backward-kill-word  # Ctrl + Backspace
 bindkey '^[[3;5~' kill-word      # Ctrl + Delete
+bindkey '^[[3~' delete-char      # Delete
 
 fastfetch
 
