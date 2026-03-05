@@ -1,0 +1,29 @@
+#!/bin/bash
+
+MONITOR="${MAIN_MONITOR:-}"
+
+PLAYERS="$(playerctl -l)"
+
+[ -z "$PLAYERS" ] && exit 0
+
+if grep -q spotify <<< "$PLAYERS"; then
+  PLAYER="spotify"
+else
+  PLAYER="$(head -n1 <<< "$PLAYERS")"
+fi
+
+case "$1" in
+  play-pause|next|previous)
+    swayosd-client \
+      --monitor "$MONITOR" \
+      --player "$PLAYER" \
+      --playerctl "$1"
+    ;;
+  volume)
+    playerctl --player="$PLAYER" volume "$2" && \
+    swayosd-client \
+      --monitor "$MONITOR" \
+      --custom-icon "$PLAYER" \
+      --custom-progress "$(playerctl --player="$PLAYER" volume)"
+    ;;
+esac
