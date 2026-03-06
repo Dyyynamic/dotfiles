@@ -37,6 +37,13 @@ bindkey '^H' backward-kill-word  # Ctrl + Backspace
 bindkey '^[[3;5~' kill-word      # Ctrl + Delete
 bindkey '^[[3~' delete-char      # Delete
 
+# Open in file manager with Ctrl+E
+open_nautilus() {
+  nautilus . &!
+}
+zle -N open_nautilus
+bindkey '^e' open_nautilus
+
 fastfetch
 
 # pnpm
