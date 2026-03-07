@@ -5,8 +5,8 @@
     "modules-right": ["network", "pulseaudio", "battery"],
     "hyprland/workspaces": {
         "format": "",
-        "on-scroll-up": "hyprctl dispatch split-cycleworkspaces -1",
-        "on-scroll-down": "hyprctl dispatch split-cycleworkspaces +1"
+        "on-scroll-up": "hyprctl dispatch split-workspace -1",
+        "on-scroll-down": "hyprctl dispatch split-workspace +1"
     },
     "clock": {
         "timezone": "Europe/Stockholm",
