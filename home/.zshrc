@@ -1,3 +1,7 @@
+# Host-specific configs
+[[ -f "$HOME/.zsh_aliases" ]] && source "$HOME/.zsh_aliases"
+[[ -f "$HOME/.zsh_env" ]] && source "$HOME/.zsh_env"
+
 # History
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -25,11 +29,6 @@ alias grep="grep --color=auto"
 alias diff="diff --color=auto"
 alias ff="fastfetch"
 
-# Host-specific aliases
-if [[ -f "$HOME/.zsh_aliases" ]]; then
-    source "$HOME/.zsh_aliases"
-fi
-
 # Keybinds
 bindkey '\e[1;5C' forward-word   # Ctrl + Right
 bindkey '\e[1;5D' backward-word  # Ctrl + Left
@@ -39,20 +38,9 @@ bindkey '^[[3~' delete-char      # Delete
 
 # Open in file manager with Ctrl+E
 open_nautilus() {
-  nautilus &>/dev/null . &!
+  nautilus . &>/dev/null &!
 }
 zle -N open_nautilus
 bindkey '^e' open_nautilus
 
 fastfetch
-
-# LaTeX Perl paths for biber
-export PATH="/usr/bin/vendor_perl:/usr/bin/site_perl:/usr/bin/core_perl:$PATH"
-
-# pnpm
-export PNPM_HOME="/home/dynamic/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
