@@ -46,6 +46,9 @@ bindkey '^e' open_nautilus
 
 fastfetch
 
+# LaTeX Perl paths for biber
+export PATH="/usr/bin/vendor_perl:/usr/bin/site_perl:/usr/bin/core_perl:$PATH"
+
 # pnpm
 export PNPM_HOME="/home/dynamic/.local/share/pnpm"
 case ":$PATH:" in
