@@ -39,7 +39,7 @@ bindkey '^[[3~' delete-char      # Delete
 
 # Open in file manager with Ctrl+E
 open_nautilus() {
-  nautilus . &!
+  nautilus &>/dev/null . &!
 }
 zle -N open_nautilus
 bindkey '^e' open_nautilus
