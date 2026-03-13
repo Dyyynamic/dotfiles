@@ -20,7 +20,7 @@ fi
 
 echo "Installing required packages..."
 
-yay -S --needed --noconfirm - < "$DOTFILES/requirements.txt"
+yay -S --needed --noconfirm - < "$DOTFILES/pkglist.txt"
 
 echo "Creating home folders..."
 
