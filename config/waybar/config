@@ -15,9 +15,11 @@
         "on-click": "swaync-client -t -sw"
     },
     "network": {
+        "format": "󰤮",
         "format-wifi": "{icon}",
-        "format-icons": ["󰤯", "󰤟", "󰤥", "󰤨"],
+        "format-ethernet": "󰈀",
         "format-disconnected": "󰤮",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
         "tooltip-format": "Network: {essid}"
     },
     "pulseaudio": {
