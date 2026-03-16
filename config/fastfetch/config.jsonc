@@ -9,80 +9,68 @@
   },
   "modules": [
     "title",
-    "separator",
-    {
-      "type": "custom",
-      "format": "{#1}Software"
-    },
+    "break",
     {
       "type": "os",
-      "key": "󰣇"
+      "key": "󰣇",
+      "format": "{name}"
     },
     {
       "type": "kernel",
-      "key": ""
+      "key": "",
+      "format": "{release}"
     },
     {
       "type": "packages",
       "key": "󰏗"
     },
     {
-      "type": "de",
-      "key": "󰍹"
-    },
-    {
       "type": "wm",
-      "key": "󱂬"
+      "key": "",
+      "format": "{process-name}"
     },
     {
       "type": "shell",
-      "key": ""
+      "key": "",
+      "format": "{process-name}"
     },
     {
       "type": "terminal",
-      "key": "󰆍"
-    },
-    // {
-    //   "type": "terminalfont",
-    //   "key": ""
-    // },
-    "break",
-    {
-      "type": "custom",
-      "format": "{#1}Hardware"
-    },
-    {
-      "type": "host",
-      "key": "󰍹"
+      "key": "󰆍",
+      "format": "{process-name}"
     },
     {
       "type": "cpu",
-      "key": "󰍛"
+      "key": "󰍛",
+      "format": "{name}"
     },
     {
       "type": "gpu",
-      "key": ""
+      "key": "",
+      "format": "{name}"
     },
     {
       "type": "memory",
-      "key": "󰘚"
+      "key": "󰘚",
+      "format": "{used} / {total}"
     },
-    // {
-    //   "type": "display",
-    //   "key": "󰍹"
-    // },
     {
       "type": "disk",
-      "key": "󰋊"
+      "key": "󰋊",
+      "folders": ["/"],
+      "format": "{size-used} / {size-total}"
     },
     {
       "type": "uptime",
       "key": "󰔛"
     },
     "break",
-    "colors"
+    {
+      "type": "custom",
+      "format": "{#black} {#red} {#green} {#yellow} {#blue} {#magenta} {#cyan} {#white}"
+    }
   ],
   "display": {
-    "separator": " "
+    "separator": "  "
   }
 }
