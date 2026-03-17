@@ -1,13 +1,12 @@
 [config]
 
 [config.wallpaper]
-command = "swww"
-arguments = [
-  "img",
-  "--transition-fps", "180",
-  "--transition-duration", "1",
-  "--transition-type", "center"
-]
+command = '''
+swww img {{ image }} \
+--transition-fps 180 \
+--transition-duration 1 \
+--transition-type center
+'''
 set = true
 
 [templates.hyprland]
@@ -42,7 +41,10 @@ output_path = '~/.config/walker/themes/Matugen/colors.css'
 [templates.gtk3]
 input_path = '~/.config/matugen/templates/gtk-colors.css'
 output_path = '~/.config/gtk-3.0/colors.css'
-post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
+post_hook = '''
+gsettings set org.gnome.desktop.interface gtk-theme "";
+gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}
+'''
 
 [templates.gtk4]
 input_path = '~/.config/matugen/templates/gtk-colors.css'
