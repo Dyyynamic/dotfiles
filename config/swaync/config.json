@@ -9,12 +9,7 @@
   "control-center-height": 600,
   "notification-window-preferred-output": "DP-2",
 
-  "widgets": [
-    "title",
-    "mpris",
-    "notifications",
-    "dnd"
-  ],
+  "widgets": ["title", "mpris", "notifications", "dnd"],
   "widget-config": {
     "title": {
       "text": "Notifications",

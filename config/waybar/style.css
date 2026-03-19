@@ -6,67 +6,67 @@
 @define-color fg            @on_background;
 
 #waybar {
-  font-family: 'NotoSans Nerd Font Propo';
-  font-size: 16px;
-  font-weight: bold;
-  color: @fg;
-  background-color: @bg;
+    font-family: "NotoSans Nerd Font Propo";
+    font-size: 16px;
+    font-weight: bold;
+    color: @fg;
+    background-color: @bg;
 }
 
 #workspaces {
-  padding: 0 8px;
-  margin: 4px;
-  border-radius: 99px;
-  background-color: @module;
+    padding: 0 8px;
+    margin: 4px;
+    border-radius: 99px;
+    background-color: @module;
 }
 
 #workspaces button {
-  color: alpha(@fg, 0.5);
-  font-size: 10px;
-  padding: 4px 2px;
-  border: none;
+    color: alpha(@fg, 0.5);
+    font-size: 10px;
+    padding: 4px 2px;
+    border: none;
 }
 
 #workspaces button.empty {
-  color: alpha(@fg, 0.25);
+    color: alpha(@fg, 0.25);
 }
 
 #workspaces button:hover {
-  /* Remove default styles */
-  box-shadow: none;
-  text-shadow: none;
-  background: none;
-  transition: none;
+    /* Remove default styles */
+    box-shadow: none;
+    text-shadow: none;
+    background: none;
+    transition: none;
 
-  color: alpha(@fg, 0.75);
+    color: alpha(@fg, 0.75);
 }
 
 #workspaces button.visible {
-  color: @fg;
+    color: @fg;
 }
 
 #clock {
-  margin: 4px;
-  padding: 4px 12px;
-  border-radius: 99px;
-  background-color: @module;
+    margin: 4px;
+    padding: 4px 12px;
+    border-radius: 99px;
+    background-color: @module;
 
-  transition: background linear 0.1s;
+    transition: background linear 0.1s;
 }
 
 #clock:hover {
-  background-color: @module-hover;
+    background-color: @module-hover;
 }
 
 .modules-right {
-  margin: 4px;
-  padding: 4px 6px;
-  border-radius: 99px;
-  background-color: @module;
+    margin: 4px;
+    padding: 4px 6px;
+    border-radius: 99px;
+    background-color: @module;
 }
 
 #network,
 #pulseaudio,
 #battery {
-  margin: 0 6px;
+    margin: 0 6px;
 }
