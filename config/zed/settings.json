@@ -25,6 +25,14 @@
   },
   "wrap_guides": [80],
   "auto_install_extensions": {
+    "html": true,
+    "toml": true,
+    "git-firefly": true,
+    "make": true,
+    "lua": true,
+    "svelte": true,
+    "latex": true,
+    "ini": true,
     "charmed-icons": true
   }
 }
