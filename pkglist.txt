@@ -48,6 +48,7 @@ walker
 waybar
 xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
+zed
 zen-browser-bin
 zsh
 zsh-autosuggestions

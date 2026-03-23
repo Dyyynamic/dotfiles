@@ -24,6 +24,7 @@
 > This script assumes a fresh Arch Linux installation with a running Hyprland session.
 
 Run the setup script:
+
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Dyyynamic/dotfiles/hypr/setup.sh | bash
 ```

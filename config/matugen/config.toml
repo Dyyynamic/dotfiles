@@ -63,3 +63,7 @@ output_path = '~/.config/qt6ct/colors/matugen.conf'
 input_path = '/dev/null'
 output_path = '/dev/null'
 post_hook = '~/.local/bin/papirus-matugen "{{colors.primary.default.hex}}"'
+
+[templates.zed]
+input_path = '~/.config/matugen/templates/zed-colors.json'
+output_path = '~/.config/zed/themes/matugen.json'

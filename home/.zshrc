@@ -28,6 +28,7 @@ alias ls="ls --color=auto"
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
 alias ff="fastfetch"
+alias zed="zeditor"
 
 # Keybinds
 bindkey '\e[1;5C' forward-word   # Ctrl + Right
