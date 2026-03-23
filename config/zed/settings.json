@@ -23,5 +23,8 @@
     "light": "Matugen Light",
     "dark": "Matugen Dark",
   },
-  "wrap_guides": [80]
+  "wrap_guides": [80],
+  "auto_install_extensions": {
+    "charmed-icons": true
+  }
 }
