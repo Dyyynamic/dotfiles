@@ -65,6 +65,23 @@ fi
 stow -d "$DOTFILES" -t "$HOME/.config" config --no-folding
 stow -d "$DOTFILES" -t "$HOME" home
 
+# Zen
+if [[ ! -d "$HOME/.config/zen" ]]; then
+    zen-browser --headless &>/dev/null &
+    PID=$!
+    sleep 1
+    kill $PID
+fi
+
+PROFILE=$(
+    find "$HOME/.config/zen" \
+        -maxdepth 1 \
+        -type d \
+        -name "*.Default (release)" \
+    | head -n 1
+)
+stow -d "$DOTFILES" -t "$PROFILE" zen
+
 # Host-specific config
 HOST="$DOTFILES/hosts/$(uname -n)"
 
@@ -96,7 +113,7 @@ echo "Setting gsettings..."
 gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3'
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-gsettings set org.gnome.desktop.wm.preferences button-layout ':' # Remove window buttons
+gsettings set org.gnome.desktop.wm.preferences button-layout ':'
 
 echo "Applying theme..."
 
