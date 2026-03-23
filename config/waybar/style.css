@@ -22,9 +22,10 @@
 
 #workspaces button {
     color: alpha(@fg, 0.5);
-    font-size: 10px;
+    font-size: 8px;
     padding: 4px 2px;
     border: none;
+    transition: color 0.1s ease;
 }
 
 #workspaces button.empty {
@@ -36,12 +37,12 @@
     box-shadow: none;
     text-shadow: none;
     background: none;
-    transition: none;
 
     color: alpha(@fg, 0.75);
 }
 
 #workspaces button.visible {
+    font-size: 11px;
     color: @fg;
 }
 
