@@ -100,23 +100,6 @@ gsettings set org.gnome.desktop.wm.preferences button-layout ':' # Remove window
 
 echo "Applying theme..."
 
-# Spicetify
-if [[ ! -f "$HOME/.config/spicetify/config-xpui.ini" ]]; then
-    spotify &
-    echo "Initializing Spotify... Please log in."
-    while [ ! -f "$HOME/.config/spotify/prefs" ]; do sleep 2; done
-    pkill spotify
-
-    # Fix Spotify permissions
-    sudo chmod a+wr /opt/spotify
-    sudo chmod a+wr /opt/spotify/Apps -R
-
-    # Configure Spicetify
-    spicetify backup
-    spicetify config color_scheme matugen
-    spicetify config current_theme Matugen
-fi
-
 # Start daemons
 
 if ! pgrep -x swww-daemon >/dev/null; then
