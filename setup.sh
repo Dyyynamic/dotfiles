@@ -2,6 +2,7 @@
 set -e
 
 DOTFILES="$HOME/.dotfiles"
+WALLPAPERS="$HOME/Pictures/Wallpapers"
 
 echo "Installing yay..."
 
@@ -16,6 +17,18 @@ echo "Cloning dotfiles..."
 
 if [ ! -d "$DOTFILES" ]; then
     git clone https://github.com/Dyyynamic/dotfiles.git "$DOTFILES"
+fi
+
+if [ ! -d "$WALLPAPERS" ]; then
+    read -rp "Clone wallpapers? [Y/n] " choice
+    choice=${choice:-Y}
+
+    if [[ "$choice" =~ ^[Yy]$ ]]; then
+        echo "Cloning wallpapers..."
+        git clone https://github.com/Dyyynamic/wallpapers.git "$WALLPAPERS"
+    else
+        mkdir -p "$WALLPAPERS"
+    fi
 fi
 
 echo "Installing required packages..."
@@ -98,7 +111,7 @@ if ! pgrep -x swaync >/dev/null; then
     swaync &>/dev/null &
 fi
 
-WALLPAPER="$DOTFILES/wallpapers/tomosaki.jpg"
+WALLPAPER="$DOTFILES/wallpapers/winter-road.png"
 
 CURRENT_WALLPAPER=$(
     swww query 2>/dev/null |
@@ -110,7 +123,7 @@ if [[ -f "$CURRENT_WALLPAPER" ]]; then
     WALLPAPER="$CURRENT_WALLPAPER"
 fi
 
-matugen image "$WALLPAPER" --quiet
+matugen image "$WALLPAPER" --source-color-index 0
 papirus-folders -C matugen --theme Papirus
 
 echo "Setup complete!"
