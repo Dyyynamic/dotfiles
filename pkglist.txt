@@ -37,6 +37,8 @@ papirus-icon-theme
 pastel
 qt5ct-kde
 qt6ct-kde
+spicetify-cli
+spotify
 starship
 stow
 swaync

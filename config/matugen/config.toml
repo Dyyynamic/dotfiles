@@ -67,3 +67,8 @@ post_hook = '~/.local/bin/papirus-matugen "{{colors.primary.default.hex}}"'
 [templates.zed]
 input_path = '~/.config/matugen/templates/zed-colors.json'
 output_path = '~/.config/zed/themes/matugen.json'
+
+[templates.spotify]
+input_path = '~/.config/matugen/templates/spicetify.ini'
+output_path = '~/.config/spicetify/Themes/Matugen/color.ini'
+post_hook = 'pidof spotify && spicetify apply || spicetify apply -n'
