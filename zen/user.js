@@ -1,3 +1,4 @@
+user_pref("zen.glance.activation-method", "shift");
 user_pref("zen.urlbar.replace-newtab", false);
 user_pref("zen.view.experimental-no-window-controls", true);
 user_pref("zen.view.show-newtab-button-top", false);
