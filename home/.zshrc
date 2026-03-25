@@ -21,7 +21,7 @@ source <(fzf --zsh)
 
 export FZF_DEFAULT_COMMAND='fd'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_DEFAULT_OPTS="--border"
+export FZF_DEFAULT_OPTS="--border --color=16"
 
 # Aliases
 alias ls="ls --color=auto"
