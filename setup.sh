@@ -119,8 +119,8 @@ echo "Applying theme..."
 
 # Start daemons
 
-if ! pgrep -x swww-daemon >/dev/null; then
-    swww-daemon &>/dev/null &
+if ! pgrep -x awww-daemon >/dev/null; then
+    awww-daemon &>/dev/null &
 fi
 
 if ! pgrep -x swaync >/dev/null; then
@@ -131,7 +131,7 @@ fi
 WALLPAPER="$DOTFILES/wallpapers/winter-road.png"
 
 CURRENT_WALLPAPER=$(
-    swww query 2>/dev/null |
+    awww query 2>/dev/null |
     sed -n "s/.*image: \(.*\)$/\1/p" |
     head -n 1
 )

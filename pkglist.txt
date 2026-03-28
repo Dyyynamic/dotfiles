@@ -41,7 +41,7 @@ starship
 stow
 swaync
 swayosd
-swww
+awww
 ttf-ms-fonts
 ttf-noto-nerd
 walker
