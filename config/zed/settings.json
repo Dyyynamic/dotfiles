@@ -10,6 +10,7 @@
   "ensure_final_newline_on_save": false,
   "format_on_save": "off",
   "edit_predictions": {
+    "mode": "eager",
     "provider": "zed",
   },
   "icon_theme": "Soft Charmed Icons",
