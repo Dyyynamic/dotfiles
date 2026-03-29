@@ -1,4 +1,5 @@
 adw-gtk-theme
+better-control-git
 brightnessctl
 cpio
 darkly-bin

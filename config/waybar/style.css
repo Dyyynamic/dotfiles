@@ -13,17 +13,22 @@
     background-color: @bg;
 }
 
+.module {
+    min-height: 32px;
+    min-width: 32px;
+    border-radius: 99px;
+}
+
 #workspaces {
     padding: 0 8px;
     margin: 4px;
-    border-radius: 99px;
     background-color: @module;
 }
 
 #workspaces button {
     color: alpha(@fg, 0.5);
     font-size: 8px;
-    padding: 4px 2px;
+    padding: 0 2px;
     border: none;
     transition: color 0.1s ease;
 }
@@ -48,8 +53,7 @@
 
 #clock {
     margin: 4px;
-    padding: 4px 12px;
-    border-radius: 99px;
+    padding: 0 12px;
     background-color: @module;
 
     transition: background linear 0.1s;
@@ -61,7 +65,7 @@
 
 .modules-right {
     margin: 4px;
-    padding: 4px 6px;
+    padding: 0 6px;
     border-radius: 99px;
     background-color: @module;
 }
@@ -69,5 +73,11 @@
 #network,
 #pulseaudio,
 #battery {
-    margin: 0 6px;
+    transition: background linear 0.1s;
+}
+
+#network:hover,
+#pulseaudio:hover,
+#battery:hover {
+    background-color: @module-hover;
 }
