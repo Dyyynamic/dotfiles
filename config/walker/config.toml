@@ -3,7 +3,3 @@ theme = "Matugen"
 [[providers.prefixes]]
 prefix = ","
 provider = "unicode"
-
-[[providers.prefixes]]
-prefix = "-"
-provider = "menus:wallpapers"
