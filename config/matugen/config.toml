@@ -2,7 +2,7 @@
 
 [config.wallpaper]
 command = '''
-awww img {{ image }} \
+awww img "{{ image }}" \
 --transition-fps 180 \
 --transition-duration 1 \
 --transition-type center
