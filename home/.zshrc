@@ -44,4 +44,16 @@ open_nautilus() {
 zle -N open_nautilus
 bindkey '^e' open_nautilus
 
+# ls for images
+lsi() {
+    local files=$(find "$@" -maxdepth 1 -type f \
+        \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \
+        -o -iname "*.gif" -o -iname "*.webp" \) \
+    | sort)
+
+    if [[ -n "$files" ]]; then
+        timg -I --grid=5 --title=%b -f - <<< "$files"
+    fi
+}
+
 fastfetch
