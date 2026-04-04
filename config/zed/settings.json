@@ -7,21 +7,26 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "buffer_font_family": "JetBrainsMono Nerd Font Propo",
   "ensure_final_newline_on_save": false,
   "format_on_save": "off",
   "edit_predictions": {
     "mode": "eager",
     "provider": "zed",
   },
-  "icon_theme": "Soft Charmed Icons",
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Soft Charmed Icons",
+    "dark": "Soft Charmed Icons",
+  },
   "telemetry": {
     "diagnostics": false,
     "metrics": false,
   },
-  "ui_font_size": 16,
-  "buffer_font_size": 15,
+  "ui_font_size": 16.0,
+  "buffer_font_size": 15.0,
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "light": "Matugen Light",
     "dark": "Matugen Dark",
   },
@@ -35,6 +40,14 @@
     "svelte": true,
     "latex": true,
     "ini": true,
-    "charmed-icons": true
-  }
+    "charmed-icons": true,
+    "qml": true,
+  },
+  "lsp": {
+    "qmljs": {
+      "binary": {
+        "arguments": ["-E"],
+      },
+    },
+  },
 }
