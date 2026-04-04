@@ -15,11 +15,11 @@ fi
 
 echo "Cloning dotfiles..."
 
-if [ ! -d "$DOTFILES" ]; then
+if [[ ! -d "$DOTFILES" ]]; then
     git clone https://github.com/Dyyynamic/dotfiles.git "$DOTFILES"
 fi
 
-if [ ! -d "$WALLPAPERS" ]; then
+if [[ ! -d "$WALLPAPERS" ]]; then
     read -rp "Clone wallpapers? [Y/n] " choice
     choice=${choice:-Y}
 

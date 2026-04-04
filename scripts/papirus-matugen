@@ -47,7 +47,7 @@ declare -A LINKS=(
 
 mkdir -p "$PAPIRUS_DST"
 
-if [ ! -f "$PAPIRUS_DST/index.theme" ]; then
+if [[ ! -f "$PAPIRUS_DST/index.theme" ]]; then
     cp "$PAPIRUS_SRC/index.theme" "$PAPIRUS_DST/"
 fi
 
