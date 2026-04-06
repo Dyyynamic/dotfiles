@@ -56,4 +56,11 @@ lsi() {
     fi
 }
 
+# Random fastfetch logo
+fastfetch() {
+  LOGO_DIR="$HOME/.config/fastfetch/logos"
+  LOGO=$(find -L "$LOGO_DIR" -type f | shuf -n 1)
+  command fastfetch --logo "$LOGO"
+}
+
 fastfetch
