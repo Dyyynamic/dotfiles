@@ -67,3 +67,7 @@ post_hook = '~/.local/bin/papirus-matugen "{{colors.primary.default.hex}}"'
 [templates.zed]
 input_path = '~/.config/matugen/templates/zed-colors.json'
 output_path = '~/.config/zed/themes/matugen.json'
+
+[templates.quickshell]
+input_path = '~/.config/matugen/templates/quickshell.json'
+output_path = '~/.local/state/quickshell/generated/colors.json'
