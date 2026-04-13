@@ -1,20 +1,19 @@
-                    .ss.
-                    'ss'
-               . . . . . . .
-            . . . . . . . . . .
-           . . . .-ssssss-. . . .
-        .::. ..-ssssssssssss-.. .::.
-     .:ss:' .:sss:' .  . ':sss:. ':ss:.
-  .:sss' . :sss. .  .--.  . .sss: . 'sss:.
- :sss:. . :sss. . .:ssss:. . .sss: . .:sss:
-(sss:. . :sss- .  :ssssss:  . -sss: . .:sss)
- :sss:. . :sss. . ':ssss:' . .sss: . .:sss:
-  ':sss. . :sss. .  '--'  . .sss: . .sss:'
-     ':ss:. ':sss:. .  . .:sss:' .:ss:'
-        '::' . 'sss-.  .-sss' . '::'
-  .ss.     . . . :sss  sss: . . .     .ss.
-  'ss'      . . .:sss .sss:. . .      'ss'
-         .-.   . :sss. sss: .   .-.
-         'sss.  .:sss  sss:.  .sss'
-          ':sssssss:'  ':sssssss:'
-             '''''        '''''
+                    d8b
+                    "8"
+                  _....._
+       .d8b   .:d888888888b:.   d8b.
+    .:d8Y"´ .d88Y"´     `"Y88b. `"Y8b:.
+  .d88Y´   d88Y´    _,_    `Y88b   `Y88b
+ d88Y´    :88:    d88888b    :88:    `Y88b
+888´      888´   d8888888b   `888      `888
+888.      888.   Y8888888Y   .888      .888
+ Y88b.    :88:    Y88888Y    :88:    .d88Y
+  `Y88b.   Y88b     `"´     d88Y   .d88Y´
+    `"Y88b. `Y88b.       .d88Y´ .d88Y"´
+  d8b  `Y8"   `"Y88b   d88Y"´   "8Y´  d8b
+  "8"            888   888            "8"
+                 888   888
+         ..      888   888      ..
+        (88b.  .d88Y   Y88b.  .d88)
+         `Y888888Y"     "Y888888Y´
+            `"""´         `"""´
