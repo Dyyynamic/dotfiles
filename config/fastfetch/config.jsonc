@@ -61,6 +61,11 @@
     {
       "type": "custom",
       "format": "{#black} {#red} {#green} {#yellow} {#blue} {#magenta} {#cyan} {#white}"
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": "{#dim_white}{$FASTFETCH_QUOTE}"
     }
   ],
   "display": {
