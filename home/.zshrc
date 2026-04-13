@@ -39,7 +39,7 @@ bindkey '^[[3~' delete-char      # Delete
 
 # Open in file manager with Ctrl+E
 open_nautilus() {
-  nautilus . &>/dev/null &!
+    nautilus . &>/dev/null &!
 }
 zle -N open_nautilus
 bindkey '^e' open_nautilus
@@ -59,8 +59,23 @@ lsi() {
 # Random fastfetch logo
 fastfetch() {
   LOGO_DIR="$HOME/.config/fastfetch/logos"
-  LOGO=$(find -L "$LOGO_DIR" -type f | shuf -n 1)
-  command fastfetch --logo "$LOGO"
+
+    case $(shuf -n1 -e nerv copland yorha) in
+        nerv)
+            LOGO="$LOGO_DIR/nerv.txt"
+            QUOTE="GOD'S IN HIS HEAVEN. ALL'S RIGHT WITH THE WORLD."
+            ;;
+        copland)
+            LOGO="$LOGO_DIR/copland.txt"
+            QUOTE="Let's all love Lain!"
+            ;;
+        yorha)
+            LOGO="$LOGO_DIR/yorha.txt"
+            QUOTE="For the Glory of Mankind"
+            ;;
+    esac
+
+    FASTFETCH_QUOTE="$QUOTE" command fastfetch --logo "$LOGO"
 }
 
 fastfetch
