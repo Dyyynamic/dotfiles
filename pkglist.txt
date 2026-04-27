@@ -16,6 +16,7 @@ fd
 frameworkintegration
 fzf
 ghostty
+ghostty-nautilus
 gnome-keyring
 hyprland
 hyprlock
