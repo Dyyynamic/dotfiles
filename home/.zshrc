@@ -60,7 +60,7 @@ lsi() {
 fastfetch() {
   LOGO_DIR="$HOME/.config/fastfetch/logos"
 
-    case $(shuf -n1 -e nerv copland yorha) in
+    case $(shuf -n1 -e nerv copland yorha arasaka) in
         nerv)
             LOGO="$LOGO_DIR/nerv.txt"
             QUOTE="GOD'S IN HIS HEAVEN. ALL'S RIGHT WITH THE WORLD."
@@ -72,6 +72,10 @@ fastfetch() {
         yorha)
             LOGO="$LOGO_DIR/yorha.txt"
             QUOTE="For the Glory of Mankind"
+            ;;
+        arasaka)
+            LOGO="$LOGO_DIR/arasaka.txt"
+            QUOTE="A Bright Future, Together."
             ;;
     esac
 
