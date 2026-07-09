@@ -6,16 +6,16 @@
 
 ## Components
 
-| Type          | Name                                                           |
-| ------------- | -------------------------------------------------------------- |
-| Compositor    | [Hyprland](https://hypr.land/)                                 |
-| Desktop Shell | [Quickshell](https://github.com/Dyyynamic/shell)               |
-| Launcher      | [Walker](https://github.com/abenz1267/walker)                  |
-| Wallpaper     | [Awww](https://codeberg.org/LGFae/awww)                        |
-| Lock Screen   | [Hyprlock](https://wiki.hypr.land/Hypr-Ecosystem/hyprlock/)    |
-| Theme         | [Matugen](https://github.com/InioX/matugen)                    |
-| Terminal      | [Ghostty](https://ghostty.org/)                                |
-| Shell         | Zsh + [Starship](https://starship.rs/)                         |
+| Type          | Name                                                        |
+| ------------- | ----------------------------------------------------------- |
+| Compositor    | [Hyprland](https://hypr.land/)                              |
+| Desktop Shell | [Quickshell](https://github.com/Dyyynamic/shell)            |
+| Launcher      | [Walker](https://github.com/abenz1267/walker)               |
+| Wallpaper     | [Awww](https://codeberg.org/LGFae/awww)                     |
+| Lock Screen   | [Hyprlock](https://wiki.hypr.land/Hypr-Ecosystem/hyprlock/) |
+| Theme         | [Matugen](https://github.com/InioX/matugen)                 |
+| Terminal      | [Ghostty](https://ghostty.org/)                             |
+| Shell         | Zsh + [Starship](https://starship.rs/)                      |
 
 ## Installation
 
