@@ -2,6 +2,7 @@
 set -e
 
 DOTFILES="$HOME/.dotfiles"
+QUICKSHELL="$HOME/.config/quickshell"
 WALLPAPERS="$HOME/Pictures/Wallpapers"
 
 echo "Installing yay..."
@@ -17,6 +18,11 @@ echo "Cloning dotfiles..."
 
 if [[ ! -d "$DOTFILES" ]]; then
     git clone https://github.com/Dyyynamic/dotfiles.git "$DOTFILES"
+fi
+
+if [[ ! -d "$QUICKSHELL" ]]; then
+    echo "Cloning shell..."
+    git clone https://github.com/Dyyynamic/shell.git "$QUICKSHELL"
 fi
 
 if [[ ! -d "$WALLPAPERS" ]]; then
@@ -62,6 +68,7 @@ if [[ -f "$HYPRLAND" && ! -L "$HYPRLAND" ]]; then
 fi
 
 # Config
+rm -f "$HOME/.config/better-control/settings.json"
 stow -d "$DOTFILES" -t "$HOME/.config" config --no-folding
 stow -d "$DOTFILES" -t "$HOME" home
 
@@ -121,11 +128,6 @@ echo "Applying theme..."
 
 if ! pgrep -x awww-daemon >/dev/null; then
     awww-daemon &>/dev/null &
-fi
-
-if ! pgrep -x swaync >/dev/null; then
-    pkill dunst || true # Included by archinstall
-    swaync &>/dev/null &
 fi
 
 WALLPAPER="$DOTFILES/wallpapers/winter-road.png"

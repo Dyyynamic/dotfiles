@@ -39,15 +39,14 @@ papirus-icon-theme
 pastel
 qt5ct-kde
 qt6ct-kde
+quickshell
 starship
 stow
-swaync
 swayosd
 awww
 ttf-ms-fonts
 ttf-noto-nerd
 walker
-waybar
 xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
 zed

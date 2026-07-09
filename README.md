@@ -1,17 +1,16 @@
-# Dotfiles (Hyprland)
+# Dotfiles
 
 ![Screenshot](screenshot.png)
 
-**Personal Hyprland setup on Arch Linux**
+**Personal desktop configuration for Arch Linux**
 
 ## Components
 
 | Type          | Name                                                           |
 | ------------- | -------------------------------------------------------------- |
 | Compositor    | [Hyprland](https://hypr.land/)                                 |
-| Bar           | [Waybar](https://github.com/Alexays/Waybar)                    |
+| Desktop Shell | [Quickshell](https://github.com/Dyyynamic/shell)               |
 | Launcher      | [Walker](https://github.com/abenz1267/walker)                  |
-| Notifications | [SwayNC](https://github.com/ErikReider/SwayNotificationCenter) |
 | Wallpaper     | [Awww](https://codeberg.org/LGFae/awww)                        |
 | Lock Screen   | [Hyprlock](https://wiki.hypr.land/Hypr-Ecosystem/hyprlock/)    |
 | Theme         | [Matugen](https://github.com/InioX/matugen)                    |
