@@ -61,3 +61,13 @@ output_path = '~/.config/zed/themes/matugen.json'
 [templates.quickshell]
 input_path = '~/.config/matugen/templates/quickshell.json'
 output_path = '~/.local/state/quickshell/generated/colors.json'
+
+[templates.tapo]
+input_path = '/dev/null'
+output_path = '/dev/null'
+post_hook = '''
+tapo \
+"{{colors.primary.default.red}}" \
+"{{colors.primary.default.green}}" \
+"{{colors.primary.default.blue}}"
+'''

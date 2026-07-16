@@ -1,0 +1,22 @@
+#!/bin/bash
+
+TARGET_HOST="archlinux"
+SCRIPT_DIR="$HOME/.dotfiles/python/tapo"
+VENV_DIR="$SCRIPT_DIR/.venv"
+
+# Check if we are on the target host
+if [ "$(uname -n)" != "$TARGET_HOST" ]; then
+    exit 0
+fi
+
+# Create venv if it doesn't exist
+if [ ! -d "$VENV_DIR" ]; then
+    echo "Creating python venv for Tapo..."
+    python -m venv "$VENV_DIR"
+fi
+
+# Install dependencies
+"$VENV_DIR/bin/pip" install -q tapo python-dotenv numpy
+
+# Run the script
+"$VENV_DIR/bin/python" "$SCRIPT_DIR/main.py" "$@"
