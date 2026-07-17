@@ -2,15 +2,9 @@
 
 MONITOR="${MAIN_MONITOR:-}"
 
-PLAYERS="$(playerctl -l)"
+PLAYER="$(playerctl -l | head -n1)"
 
-[ -z "$PLAYERS" ] && exit 0
-
-if grep -q spotify <<< "$PLAYERS"; then
-  PLAYER="spotify"
-else
-  PLAYER="$(head -n1 <<< "$PLAYERS")"
-fi
+[ -z "$PLAYER" ] && exit 0
 
 case "$1" in
   play-pause|next|previous)
@@ -23,7 +17,7 @@ case "$1" in
     playerctl --player="$PLAYER" volume "$2" && \
     swayosd-client \
       --monitor "$MONITOR" \
-      --custom-icon "$PLAYER" \
+      --custom-icon "audio-x-generic-symbolic" \
       --custom-progress "$(playerctl --player="$PLAYER" volume)"
     ;;
 esac
