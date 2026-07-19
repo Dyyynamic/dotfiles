@@ -130,7 +130,7 @@ if ! pgrep -x awww-daemon >/dev/null; then
     awww-daemon &>/dev/null &
 fi
 
-WALLPAPER="$DOTFILES/wallpapers/winter-road.png"
+WALLPAPER="$DOTFILES/assets/wallpaper.jpg"
 
 CURRENT_WALLPAPER=$(
     awww query 2>/dev/null |
