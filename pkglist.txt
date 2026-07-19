@@ -23,7 +23,6 @@ hyprlock
 hyprpicker
 hyprpolkitagent
 hyprshot
-hyprsunset
 imagemagick
 jq
 less
@@ -42,6 +41,7 @@ qt6ct-kde
 quickshell
 starship
 stow
+sunsetr
 swayosd
 awww
 ttf-ms-fonts
