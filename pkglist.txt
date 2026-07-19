@@ -13,6 +13,7 @@ elephant-symbols
 elephant-unicode
 fastfetch
 fd
+ffmpegthumbnailer
 frameworkintegration
 fzf
 ghostty
