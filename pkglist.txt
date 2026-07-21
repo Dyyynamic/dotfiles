@@ -20,7 +20,6 @@ ghostty
 ghostty-nautilus
 gnome-keyring
 hyprland
-hyprlock
 hyprpicker
 hyprpolkitagent
 hyprshot
