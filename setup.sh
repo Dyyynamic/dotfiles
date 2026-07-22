@@ -109,8 +109,13 @@ fi
 mkdir -p "$HOME/.local/bin"
 stow -d "$DOTFILES" -t "$HOME/.local/bin" scripts
 
+# Systemd services
+mkdir -p "$HOME/.config/systemd/user"
+stow -d "$DOTFILES" -t "$HOME/.config/systemd/user" systemd
+
 echo "Enabling systemd services..."
 
+systemctl --user enable --now tapo.service
 systemctl --user enable --now gcr-ssh-agent.socket
 sudo systemctl enable --now paccache.timer
 sudo systemctl enable --now systemd-oomd

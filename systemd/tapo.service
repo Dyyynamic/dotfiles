@@ -1,0 +1,12 @@
+[Unit]
+Description=Control Tapo LED strip with user session
+ConditionHost=archlinux
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/tapo on
+ExecStop=%h/.local/bin/tapo off
+RemainAfterExit=yes
+
+[Install]
+WantedBy=default.target

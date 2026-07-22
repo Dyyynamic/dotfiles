@@ -53,6 +53,18 @@ def calibrate_saturation(input_hue: int, input_sat: int) -> int:
     return int(calibrated_sat)
 
 
+async def set_color(device, red: int, green: int, blue: int):
+    h, s, _ = colorsys.rgb_to_hsv(red / 255, green / 255, blue / 255)
+
+    hue = int(h * 360)
+    saturation = int(s * 100)
+
+    calibrated_hue = calibrate_hue(hue)
+    calibrated_sat = calibrate_saturation(hue, saturation)
+
+    await device.set_hue_saturation(calibrated_hue, calibrated_sat)
+
+
 async def main(args):
     load_dotenv(Path.home() / ".dotfiles" / "secrets.env")
 
@@ -64,6 +76,12 @@ async def main(args):
         print("Missing secrets")
         sys.exit(1)
 
+    if len(args) < 2:
+        print("Usage: tapo <on|off|color>")
+        sys.exit(1)
+
+    command = args[1]
+
     client = ApiClient(username, password)
 
     try:
@@ -72,22 +90,23 @@ async def main(args):
         print("Tapo: Failed to connect")
         sys.exit(0)
 
-    if len(args) == 4:
-        red = int(args[1])
-        green = int(args[2])
-        blue = int(args[3])
-    else:
-        print("Usage: tapo <r> <g> <b>")
-        sys.exit(1)
+    match command:
+        case "on":
+            await device.on()
 
-    h, s, _ = colorsys.rgb_to_hsv(red / 255, green / 255, blue / 255)
+        case "off":
+            await device.off()
 
-    hue = int(h * 360)
-    saturation = int(s * 100)
+        case "color":
+            if len(args) != 5:
+                print("Usage: tapo color <r> <g> <b>")
+                sys.exit(1)
 
-    calibrated_hue = calibrate_hue(hue)
-    calibrated_sat = calibrate_saturation(hue, saturation)
-    await device.set_hue_saturation(calibrated_hue, calibrated_sat)
+            red = int(args[2])
+            green = int(args[3])
+            blue = int(args[4])
+
+            await set_color(device, red, green, blue)
 
 
 if __name__ == "__main__":

@@ -66,8 +66,8 @@ output_path = '~/.local/state/quickshell/generated/colors.json'
 input_path = '/dev/null'
 output_path = '/dev/null'
 post_hook = '''
-tapo \
+tapo color \
 "{{colors.primary.default.red}}" \
 "{{colors.primary.default.green}}" \
-"{{colors.primary.default.blue}}"
+"{{colors.primary.default.blue}}" &
 '''
