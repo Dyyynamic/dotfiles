@@ -65,7 +65,12 @@ async def main(args):
         sys.exit(1)
 
     client = ApiClient(username, password)
-    device = await client.l900(ip)
+
+    try:
+        device = await client.l900(ip)
+    except Exception:
+        print("Tapo: Failed to connect")
+        sys.exit(0)
 
     if len(args) == 4:
         red = int(args[1])

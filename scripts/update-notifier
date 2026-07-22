@@ -14,6 +14,7 @@ if [[ "$UPDATES" -gt 0 ]]; then
         ghostty -e bash -c "yay -Syu && \
             echo 'Update complete!' || \
             echo 'Update failed.'; \
-            read -p 'Press Enter to close...'"
+            read -p 'Press Enter to close...'" \
+            &>/dev/null &
     fi
 fi

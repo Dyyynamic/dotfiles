@@ -19,10 +19,10 @@ fzf
 ghostty
 ghostty-nautilus
 gnome-keyring
+grim
 hyprland
 hyprpicker
 hyprpolkitagent
-hyprshot
 imagemagick
 jq
 less
@@ -39,6 +39,7 @@ pastel
 qt5ct-kde
 qt6ct-kde
 quickshell
+slurp
 starship
 stow
 sunsetr

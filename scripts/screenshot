@@ -1,0 +1,88 @@
+#!/bin/bash
+
+MODE="$1"
+
+# Don't start another instance if slurp is already running
+pgrep -x slurp && exit 0
+
+DIR="$HOME/Pictures/Screenshots"
+mkdir -p "$DIR"
+
+FILE="$DIR/$(date +%Y-%m-%d-%H%M%S).png"
+
+# Mooch off Quickshell's colors
+BG=$(
+    jq -r '.md3.background' \
+    ~/.local/state/quickshell/generated/colors.json
+)
+BG=${BG:-"#000000"} # Default to black
+
+FG=$(
+    jq -r '.md3.on_background' \
+    ~/.local/state/quickshell/generated/colors.json
+)
+FG=${FG:-"#ffffff"} # Default to white
+
+SLURP=(
+    slurp
+    -b "${BG}80"
+    -c "${FG}80"
+    -F 'NotoSans Nerd Font Propo'
+)
+
+# Capture region
+case "$MODE" in
+    output)
+        # -o: output, -r: disable region select, -w: border width
+        REGION=$("${SLURP[@]}" -o -r -w 0)
+        ;;
+    window)
+        # Get active workspaces
+        WORKSPACES=$(
+            hyprctl -j monitors |
+            jq -c '[.[].activeWorkspace.id]'
+        )
+
+        # Draw regions for each visible window
+        # -r: disable region select
+        REGION=$(
+            hyprctl -j clients |
+            jq -r --argjson ws "$WORKSPACES" '
+                .[]
+                | select(
+                    .mapped
+                    and (.hidden | not)
+                    and (.workspace.id as $id | $ws | index($id))
+                )
+                | "\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"
+            ' |
+            "${SLURP[@]}" -r
+        )
+        ;;
+    *)
+        # -d: show dimensions
+        REGION=$("${SLURP[@]}" -d)
+        ;;
+esac
+
+[ -z "$REGION" ] && exit 0
+
+# Take screenshot
+grim -g "$REGION" "$FILE" || exit 1
+
+# Copy to clipboard
+wl-copy < "$FILE"
+
+# Notify user
+ACTION=$(notify-send \
+    -a "Arch Linux" \
+    --action="default=Open" \
+    -i "$FILE" \
+    "Screenshot saved" \
+    "Image saved to $FILE"
+)
+
+# Open directory if notification clicked
+if [[ "$ACTION" == "default" ]]; then
+    xdg-open "$(dirname "$FILE")" &>/dev/null &
+fi
