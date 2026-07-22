@@ -6,9 +6,13 @@ MODE="$1"
 pgrep -x slurp && exit 0
 
 DIR="$HOME/Pictures/Screenshots"
+THUMB_DIR="/tmp/screenshots"
 mkdir -p "$DIR"
+mkdir -p "$THUMB_DIR"
 
-FILE="$DIR/$(date +%Y-%m-%d-%H%M%S).png"
+TIMESTAMP="$(date +%Y-%m-%d-%H%M%S)"
+FILE="$DIR/${TIMESTAMP}.png"
+THUMB="${THUMB_DIR}/thumb_${TIMESTAMP}.png"
 
 # Mooch off Quickshell's colors
 BG=$(
@@ -83,11 +87,14 @@ grim -g "$REGION" "$FILE" || exit 1
 # Copy to clipboard
 wl-copy < "$FILE"
 
+# Generate thumbnail
+magick "$FILE" -thumbnail 250x250 "$THUMB"
+
 # Notify user
 ACTION=$(notify-send \
     -a "Arch Linux" \
     --action="default=Open" \
-    -i "$FILE" \
+    -i "$THUMB" \
     "Screenshot saved" \
     "Image saved to $FILE"
 )

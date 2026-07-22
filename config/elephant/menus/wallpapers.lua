@@ -7,7 +7,7 @@ Cache = false
 Action = "matugen image '%VALUE%' --source-color-index 0"
 
 local function generate_thumbnail(path, thumb_path)
-    os.execute("convert '" .. path .. "' -resize 500x500\\> '" .. thumb_path
+    os.execute("magick '" .. path .. "' -thumbnail 500x500\\> '" .. thumb_path
         .. "' &")
 end
 
