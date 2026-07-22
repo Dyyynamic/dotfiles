@@ -33,8 +33,18 @@ SLURP=(
 # Capture region
 case "$MODE" in
     output)
-        # -o: output, -r: disable region select, -w: border width
-        REGION=$("${SLURP[@]}" -o -r -w 0)
+        MONITOR_COUNT=$(hyprctl -j monitors | jq length)
+
+        if [ "$MONITOR_COUNT" -eq 1 ]; then
+            # Single monitor: skip slurp and use full monitor
+            REGION=$(
+                hyprctl -j monitors |
+                jq -r '.[0] | "\(.x),\(.y) \(.width)x\(.height)"'
+            )
+        else
+            # -o: output, -r: disable region select, -w: border width
+            REGION=$("${SLURP[@]}" -o -r -w 0)
+        fi
         ;;
     window)
         # Get active workspaces
