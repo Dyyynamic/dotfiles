@@ -25,7 +25,7 @@ function GetEntries()
         },
         {
             Text = "Log Out",
-            Value = "hyprctl dispatch exit",
+            Value = "hyprctl dispatch 'hl.dsp.exit()'",
             Icon = "system-log-out-symbolic",
         }
     }
