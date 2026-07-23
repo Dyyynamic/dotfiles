@@ -49,11 +49,6 @@ output_path = '~/.config/qt5ct/colors/matugen.conf'
 input_path = '~/.config/matugen/templates/qtct-colors.conf'
 output_path = '~/.config/qt6ct/colors/matugen.conf'
 
-[templates.papirus]
-input_path = '/dev/null'
-output_path = '/dev/null'
-post_hook = '~/.local/bin/papirus-matugen "{{colors.primary.default.hex}}"'
-
 [templates.zed]
 input_path = '~/.config/matugen/templates/zed-colors.json'
 output_path = '~/.config/zed/themes/matugen.json'
@@ -61,6 +56,13 @@ output_path = '~/.config/zed/themes/matugen.json'
 [templates.quickshell]
 input_path = '~/.config/matugen/templates/quickshell.json'
 output_path = '~/.local/state/quickshell/generated/colors.json'
+
+# Scripts
+
+[templates.papirus]
+input_path = '/dev/null'
+output_path = '/dev/null'
+post_hook = '~/.local/bin/papirus-matugen "{{colors.primary.default.hex}}" &'
 
 [templates.tapo]
 input_path = '/dev/null'
