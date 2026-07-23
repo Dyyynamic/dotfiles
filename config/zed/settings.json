@@ -51,14 +51,16 @@
   "wrap_guides": [80],
   "auto_install_extensions": {
     "html": true,
-    "toml": true,
     "git-firefly": true,
+    "toml": true,
+    "scss": true,
     "make": true,
     "lua": true,
     "svelte": true,
     "latex": true,
     "ini": true,
     "charmed-icons": true,
+    "glsl": true,
     "qml": true,
   },
   "lsp": {
