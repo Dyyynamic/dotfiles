@@ -4,6 +4,7 @@ set -e
 DOTFILES="$HOME/.dotfiles"
 QUICKSHELL="$HOME/.config/quickshell"
 WALLPAPERS="$HOME/Pictures/Wallpapers"
+PLUGINS="$HOME/.config/hypr/plugins"
 
 echo "Installing yay..."
 
@@ -47,10 +48,13 @@ xdg-user-dirs-update
 
 echo "Installing Hyprland plugins..."
 
-if ! hyprpm list | grep -q split-monitor-workspaces; then
-    hyprpm update
-    echo "y" | hyprpm add https://github.com/zjeffer/split-monitor-workspaces
-    hyprpm enable split-monitor-workspaces
+mkdir -p "$PLUGINS"
+
+PLUGIN="$PLUGINS/split-monitor-workspaces"
+if [[ ! -d "$PLUGIN" ]]; then
+    git clone https://github.com/zjeffer/split-monitor-workspaces "$PLUGIN"
+else
+    git -C "$PLUGIN" pull
 fi
 
 echo "Changing shell to zsh..."
