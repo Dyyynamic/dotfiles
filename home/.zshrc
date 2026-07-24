@@ -27,7 +27,7 @@ export FZF_DEFAULT_OPTS="--border --color=16"
 alias ls="ls --color=auto"
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
-alias ff="fastfetch"
+alias ff="randfetch"
 alias zed="zeditor"
 
 # Keybinds
@@ -56,30 +56,4 @@ lsi() {
     fi
 }
 
-# Random fastfetch logo
-fastfetch() {
-  LOGO_DIR="$HOME/.config/fastfetch/logos"
-
-    case $(shuf -n1 -e nerv copland yorha arasaka) in
-        nerv)
-            LOGO="$LOGO_DIR/nerv.txt"
-            QUOTE="GOD'S IN HIS HEAVEN. ALL'S RIGHT WITH THE WORLD."
-            ;;
-        copland)
-            LOGO="$LOGO_DIR/copland.txt"
-            QUOTE="Let's all love Lain!"
-            ;;
-        yorha)
-            LOGO="$LOGO_DIR/yorha.txt"
-            QUOTE="For the Glory of Mankind"
-            ;;
-        arasaka)
-            LOGO="$LOGO_DIR/arasaka.txt"
-            QUOTE="A Bright Future, Together."
-            ;;
-    esac
-
-    FASTFETCH_QUOTE="$QUOTE" command fastfetch --logo "$LOGO"
-}
-
-fastfetch
+randfetch

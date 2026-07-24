@@ -1,0 +1,33 @@
+#!/bin/bash
+
+LOGO_DIR="$HOME/.config/fastfetch/logos"
+
+choices=(
+    "nerv"
+    "copland"
+    "yorha"
+    "arasaka"
+    "teto"
+)
+
+choice=$(printf "%s\n" "${choices[@]}" | shuf -n1)
+
+case "$choice" in
+    nerv)
+        quote="GOD'S IN HIS HEAVEN. ALL'S RIGHT WITH THE WORLD."
+        ;;
+    copland)
+        quote="Let's all love Lain!"
+        ;;
+    yorha)
+        quote="For the Glory of Mankind"
+        ;;
+    arasaka)
+        quote="A Bright Future, Together."
+        ;;
+    teto)
+        quote="恋をして　ふられ　また　捨てられて"
+        ;;
+esac
+
+FASTFETCH_QUOTE="$quote" fastfetch --logo "$LOGO_DIR/$choice.txt"
