@@ -30,6 +30,7 @@ FG=${FG:-"#ffffff"} # Default to white
 SLURP=(
     slurp
     -b "${BG}80"
+    -B "${BG}80"
     -c "${FG}80"
     -F 'NotoSans Nerd Font Propo'
 )
