@@ -28,11 +28,3 @@ curl -fsSL https://raw.githubusercontent.com/Dyyynamic/dotfiles/hypr/setup.sh | 
 ```
 
 Host-specific configs (monitors, default apps, etc.) can be modified under `~/.dotfiles/hosts/<hostname>`.
-
-## Usage
-
-Change wallpaper using matugen:
-
-```bash
-matugen image /path/to/wallpaper.jpg
-```
