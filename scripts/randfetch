@@ -39,4 +39,4 @@ fi
 
 quote=$(get_quote "$choice")
 
-FASTFETCH_QUOTE="$quote" fastfetch --logo "$LOGO_DIR/$choice.txt" "$@"
+exec env FASTFETCH_QUOTE="$quote" fastfetch --logo "$LOGO_DIR/$choice.txt" "$@"
