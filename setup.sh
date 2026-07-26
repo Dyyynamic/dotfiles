@@ -151,7 +151,7 @@ if [[ -f "$CURRENT_WALLPAPER" ]]; then
     WALLPAPER="$CURRENT_WALLPAPER"
 fi
 
-matugen image "$WALLPAPER" --prefer saturation
+matugen image "$WALLPAPER" --source-color-index 0
 papirus-folders -C matugen --theme Papirus
 
 echo "Setup complete!"
