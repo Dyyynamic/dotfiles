@@ -1,11 +1,5 @@
 #!/bin/bash
 
-TYPE=""
-MODE=""
-
-# Don't start another instance if slurp or wf-recorder is already running
-(pgrep -x slurp || pgrep -x wf-recorder) && exit 0
-
 SCREENSHOT_DIR="$HOME/Pictures/Screenshots"
 RECORD_DIR="$HOME/Videos/Recordings"
 THUMB_DIR="/tmp/screenshots"
@@ -15,6 +9,7 @@ STATE_DIR="$XDG_RUNTIME_DIR/capture"
 PIDFILE="$STATE_DIR/recording.pid"
 FILEINFO="$STATE_DIR/recording.file"
 STARTFILE="$STATE_DIR/recording.start"
+NOTIFY_PIDFILE="$STATE_DIR/notify.pid"
 
 # Mooch off Quickshell's colors
 BG=$(
@@ -36,6 +31,9 @@ SLURP=(
     -c "${FG}80"
     -F 'NotoSans Nerd Font Propo'
 )
+
+TYPE=""
+MODE=""
 
 while [[ $# -gt 0 ]]; do
     case "$1" in
@@ -60,6 +58,11 @@ while [[ $# -gt 0 ]]; do
     esac
     shift
 done
+
+# Don't start another instance if slurp or wf-recorder is already running
+if [[ "$TYPE" != "stop" ]]; then
+    (pgrep -x slurp || pgrep -x wf-recorder) && exit 0
+fi
 
 function capture_region() {
     case "$MODE" in
@@ -142,8 +145,15 @@ function screenshot() {
     fi
 }
 
+function close_notif() {
+    # Close the notification, triggering stop_recording
+    if [[ -f "$NOTIFY_PIDFILE" ]]; then
+        kill -INT "$(cat "$NOTIFY_PIDFILE")"
+    fi
+}
+
 function stop_recording() {
-    [ ! -f "$PIDFILE" ] && exit 0
+    [[ -f "$PIDFILE" && -f "$FILEINFO" ]] || exit 0
 
     REC_PID=$(cat "$PIDFILE")
     FILE="$(cat "$FILEINFO")"
@@ -151,7 +161,7 @@ function stop_recording() {
     kill -INT "$REC_PID"
     wait "$REC_PID"
 
-    rm -f "$PIDFILE" "$FILEINFO" "$STARTFILE"
+    rm -f "$PIDFILE" "$FILEINFO" "$STARTFILE" "$NOTIFY_PIDFILE"
 
     # Recording stopped notification
     ACTION=$(notify-send \
@@ -181,9 +191,12 @@ function record() {
     wf-recorder -g "$REGION" -f "$FILE" -a="$AUDIO" &
     REC_PID=$!
 
+    # Save state
     echo "$REC_PID" > "$PIDFILE"
     echo "$FILE" > "$FILEINFO"
     date +%s > "$STARTFILE"
+
+    trap 'stop_recording' INT TERM
 
     # Recording started notification
     notify-send \
@@ -193,9 +206,11 @@ function record() {
         "Click to stop" &
 
     NOTIFY_PID=$!
+    echo "$NOTIFY_PID" > "$NOTIFY_PIDFILE"
+
     wait "$NOTIFY_PID"
 
-    # Stop recording if notification is clicked or dismissed
+    # Stop recording if notification is closed
     stop_recording
 }
 
@@ -207,6 +222,6 @@ case "$TYPE" in
         record
         ;;
     "stop")
-        stop_recording
+        close_notif
         ;;
 esac
