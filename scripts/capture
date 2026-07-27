@@ -1,0 +1,212 @@
+#!/bin/bash
+
+TYPE=""
+MODE=""
+
+# Don't start another instance if slurp or wf-recorder is already running
+(pgrep -x slurp || pgrep -x wf-recorder) && exit 0
+
+SCREENSHOT_DIR="$HOME/Pictures/Screenshots"
+RECORD_DIR="$HOME/Videos/Recordings"
+THUMB_DIR="/tmp/screenshots"
+
+# Recording state files
+STATE_DIR="$XDG_RUNTIME_DIR/capture"
+PIDFILE="$STATE_DIR/recording.pid"
+FILEINFO="$STATE_DIR/recording.file"
+STARTFILE="$STATE_DIR/recording.start"
+
+# Mooch off Quickshell's colors
+BG=$(
+    jq -r '.md3.background' \
+    ~/.local/state/quickshell/generated/colors.json
+)
+BG=${BG:-"#000000"} # Default to black
+
+FG=$(
+    jq -r '.md3.on_background' \
+    ~/.local/state/quickshell/generated/colors.json
+)
+FG=${FG:-"#ffffff"} # Default to white
+
+SLURP=(
+    slurp
+    -b "${BG}80"
+    -B "${BG}80"
+    -c "${FG}80"
+    -F 'NotoSans Nerd Font Propo'
+)
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --screenshot|-s)
+            TYPE="screenshot"
+            ;;
+        --record|-r)
+            TYPE="record"
+            ;;
+        --stop|-S)
+            TYPE="stop"
+            ;;
+        --area|-a)
+            MODE="area"
+            ;;
+        --window|-w)
+            MODE="window"
+            ;;
+        --output|-o)
+            MODE="output"
+            ;;
+    esac
+    shift
+done
+
+function capture_region() {
+    case "$MODE" in
+        output)
+            MONITOR_COUNT=$(hyprctl -j monitors | jq length)
+
+            if [ "$MONITOR_COUNT" -eq 1 ]; then
+                # Single monitor: skip slurp and use full monitor
+                REGION=$(
+                    hyprctl -j monitors |
+                    jq -r '.[0] | "\(.x),\(.y) \(.width)x\(.height)"'
+                )
+            else
+                # -o: output, -r: disable region select, -w: border width
+                REGION=$("${SLURP[@]}" -o -r -w 0)
+            fi
+            ;;
+        window)
+            # Get active workspaces
+            WORKSPACES=$(
+                hyprctl -j monitors |
+                jq -c '[.[].activeWorkspace.id]'
+            )
+
+            # Draw regions for each visible window
+            # -r: disable region select
+            REGION=$(
+                hyprctl -j clients |
+                jq -r --argjson ws "$WORKSPACES" '
+                    .[]
+                    | select(
+                        .mapped
+                        and (.hidden | not)
+                        and (.workspace.id as $id | $ws | index($id))
+                    )
+                    | "\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"
+                ' |
+                "${SLURP[@]}" -r
+            )
+            ;;
+        *)
+            # -d: show dimensions
+            REGION=$("${SLURP[@]}" -d)
+            ;;
+    esac
+
+    [ -z "$REGION" ] && exit 0
+}
+
+function screenshot() {
+    mkdir -p "$SCREENSHOT_DIR"
+
+    TIMESTAMP="$(date +%Y-%m-%d-%H%M%S)"
+    FILE="$SCREENSHOT_DIR/${TIMESTAMP}.png"
+    THUMB="${THUMB_DIR}/thumb_${TIMESTAMP}.png"
+
+    capture_region
+
+    # Take screenshot
+    grim -g "$REGION" "$FILE" || exit 1
+
+    # Copy to clipboard
+    wl-copy < "$FILE"
+
+    # Generate thumbnail
+    magick "$FILE" -thumbnail 250x250 "$THUMB"
+
+    # Notify user
+    ACTION=$(notify-send \
+        -a "Arch Linux" \
+        --action="default=Open" \
+        -i "$THUMB" \
+        "Screenshot saved" \
+        "Image saved to $FILE"
+    )
+
+    # Open directory if notification clicked
+    if [[ "$ACTION" == "default" ]]; then
+        xdg-open "$(dirname "$FILE")" &>/dev/null &
+    fi
+}
+
+function stop_recording() {
+    [ ! -f "$PIDFILE" ] && exit 0
+
+    REC_PID=$(cat "$PIDFILE")
+    FILE="$(cat "$FILEINFO")"
+
+    kill -INT "$REC_PID"
+    wait "$REC_PID"
+
+    rm -f "$PIDFILE" "$FILEINFO" "$STARTFILE"
+
+    # Recording stopped notification
+    ACTION=$(notify-send \
+        -a "Arch Linux" \
+        --action="default=Open" \
+        "Recording stopped" \
+        "Video saved to $FILE"
+    )
+
+    # Open directory if notification clicked
+    if [[ "$ACTION" == "default" ]]; then
+        xdg-open "$(dirname "$FILE")" &>/dev/null &
+    fi
+}
+
+function record() {
+    mkdir -p "$RECORD_DIR"
+    mkdir -p "$STATE_DIR"
+
+    AUDIO="$(pactl get-default-sink).monitor"
+    TIMESTAMP="$(date +%Y-%m-%d-%H%M%S)"
+    FILE="$RECORD_DIR/$TIMESTAMP.mp4"
+
+    capture_region
+
+    # Record screen
+    wf-recorder -g "$REGION" -f "$FILE" -a="$AUDIO" &
+    REC_PID=$!
+
+    echo "$REC_PID" > "$PIDFILE"
+    echo "$FILE" > "$FILEINFO"
+    date +%s > "$STARTFILE"
+
+    # Recording started notification
+    notify-send \
+        -a "Arch Linux" \
+        --action="default=Stop" \
+        "Recording started" \
+        "Click to stop" &
+
+    NOTIFY_PID=$!
+    wait "$NOTIFY_PID"
+
+    # Stop recording if notification is clicked or dismissed
+    stop_recording
+}
+
+case "$TYPE" in
+    "screenshot")
+        screenshot
+        ;;
+    "record")
+        record
+        ;;
+    "stop")
+        stop_recording
+        ;;
+esac

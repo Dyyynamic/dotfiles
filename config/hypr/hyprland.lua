@@ -184,10 +184,15 @@ hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(menu .. " --provider clipboard"))
 hl.bind(mainMod .. " + X", hl.dsp.exec_cmd(menu .. " --provider menus:system"))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(controlCenter))
 
--- Screenshot
-hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("screenshot"))                -- Region
-hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("screenshot output")) -- Monitor
-hl.bind(mainMod .. " + ALT + P", hl.dsp.exec_cmd("screenshot window"))   -- Window
+-- Capture
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("capture -s"))            -- Region
+hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("capture -s -o")) -- Monitor
+hl.bind(mainMod .. " + ALT + P", hl.dsp.exec_cmd("capture -s -w"))   -- Window
+
+-- Record
+hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("capture -r"))            -- Region
+hl.bind(mainMod .. " + SHIFT + O", hl.dsp.exec_cmd("capture -r -o")) -- Monitor
+hl.bind(mainMod .. " + ALT + O", hl.dsp.exec_cmd("capture -r -w"))   -- Window
 
 -- Scratchpad
 hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("scratchpad"))

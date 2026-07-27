@@ -48,6 +48,7 @@ awww
 ttf-ms-fonts
 ttf-noto-nerd
 walker
+wf-recorder
 xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
 zed
