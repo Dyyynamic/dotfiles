@@ -40,7 +40,6 @@ pastel
 qt5ct-kde
 qt6ct-kde
 quickshell
-slurp
 starship
 stow
 sunsetr

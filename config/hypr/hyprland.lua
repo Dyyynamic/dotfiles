@@ -34,6 +34,7 @@ local colorPicker = "hyprpicker -a"
 -- Quickshell
 local lock = "qs ipc call lockscreen lock"
 local controlCenter = "qs ipc call controlCenter toggle"
+local capture = "qs ipc call capture"
 
 
 -- AUTOSTART
@@ -184,15 +185,13 @@ hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(menu .. " --provider clipboard"))
 hl.bind(mainMod .. " + X", hl.dsp.exec_cmd(menu .. " --provider menus:system"))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(controlCenter))
 
--- Capture
-hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("capture -s"))            -- Region
-hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("capture -s -o")) -- Monitor
-hl.bind(mainMod .. " + ALT + P", hl.dsp.exec_cmd("capture -s -w"))   -- Window
+-- Screenshot
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(capture .. " screenshot region"))
+hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd(capture .. " screenshot screen"))
 
 -- Record
-hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("capture -r"))            -- Region
-hl.bind(mainMod .. " + SHIFT + O", hl.dsp.exec_cmd("capture -r -o")) -- Monitor
-hl.bind(mainMod .. " + ALT + O", hl.dsp.exec_cmd("capture -r -w"))   -- Window
+hl.bind(mainMod .. " + O", hl.dsp.exec_cmd(capture .. " record region"))
+hl.bind(mainMod .. " + SHIFT + O", hl.dsp.exec_cmd(capture .. " record monitor"))
 
 -- Scratchpad
 hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("scratchpad"))
@@ -370,11 +369,8 @@ hl.layer_rule({
     match = { namespace = "qs-notifications" },
     no_anim = true
 })
-
--- Slurp fix
--- https://github.com/Gustash/Hyprshot/issues/60#issuecomment-3698826145
 hl.layer_rule({
-    match = { namespace = "selection" },
+    match = { namespace = "qs-capture" },
     no_anim = true
 })
 
