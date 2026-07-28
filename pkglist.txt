@@ -26,6 +26,7 @@ hyprpolkitagent
 imagemagick
 jq
 less
+libnotify
 matugen
 meson
 nautilus
