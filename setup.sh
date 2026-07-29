@@ -131,6 +131,11 @@ gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 gsettings set org.gnome.desktop.wm.preferences button-layout ':'
 
+# Gthumb
+gsettings set org.gnome.gthumb.browser statusbar-visible false
+gsettings set org.gnome.gthumb.browser scroll-action 'zoom'
+gsettings set org.gnome.gthumb.image-viewer show-frame false
+
 echo "Applying theme..."
 
 # Start daemons

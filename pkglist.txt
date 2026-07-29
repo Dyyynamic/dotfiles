@@ -19,6 +19,12 @@ fzf
 ghostty
 ghostty-nautilus
 gnome-keyring
+gst-libav
+gst-plugins-base
+gst-plugins-bad
+gst-plugins-good
+gst-plugins-ugly
+gthumb
 grim
 hyprland
 hyprpicker
