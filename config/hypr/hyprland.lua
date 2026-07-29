@@ -244,11 +244,17 @@ hl.bind(mainMod .. " + TAB", function()
     hl.dispatch(hl.dsp.window.bring_to_top())
 end)
 
--- Swap windows with mainMod + SHIFT + arrow keys
+-- Move windows with mainMod + SHIFT + arrow keys
 hl.bind(mainMod .. " + SHIFT + up", hl.dsp.window.move({ direction = "up" }))
 hl.bind(mainMod .. " + SHIFT + down", hl.dsp.window.move({ direction = "down" }))
 hl.bind(mainMod .. " + SHIFT + left", hl.dsp.window.move({ direction = "left" }))
 hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.move({ direction = "right" }))
+
+-- Swap windows with mainMod + CTRL + arrow keys
+hl.bind(mainMod .. " + CTRL + up", hl.dsp.window.swap({ direction = "up" }))
+hl.bind(mainMod .. " + CTRL + down", hl.dsp.window.swap({ direction = "down" }))
+hl.bind(mainMod .. " + CTRL + left", hl.dsp.window.swap({ direction = "left" }))
+hl.bind(mainMod .. " + CTRL + right", hl.dsp.window.swap({ direction = "right" }))
 
 -- Switch workspaces with mainMod + [1-5]
 hl.bind(mainMod .. " + 1", smw.workspace("1"))
