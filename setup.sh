@@ -126,9 +126,6 @@ sudo systemctl enable --now systemd-oomd
 
 echo "Setting gsettings..."
 
-gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3'
-gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
-gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 gsettings set org.gnome.desktop.wm.preferences button-layout ':'
 
 # Gthumb
@@ -156,8 +153,8 @@ if [[ -f "$CURRENT_WALLPAPER" ]]; then
     WALLPAPER="$CURRENT_WALLPAPER"
 fi
 
-matugen image "$WALLPAPER" --source-color-index 0
 papirus-folders -C matugen --theme Papirus
+matugen image "$WALLPAPER" --source-color-index 0
 
 echo "Setup complete!"
 echo "⚠ Hyprland needs to reload to launch required tools."

@@ -22,7 +22,10 @@ post_hook = 'pkill -SIGUSR2 ghostty'
 [templates.swayosd]
 input_path = '~/.config/matugen/templates/colors.css'
 output_path = '~/.config/swayosd/colors.css'
-post_hook = 'pkill swayosd-server; hyprctl dispatch "hl.dsp.exec_cmd(\"swayosd-server\")"'
+post_hook = '''
+pkill swayosd-server
+hyprctl dispatch "hl.dsp.exec_cmd(\"swayosd-server\")"
+'''
 
 [templates.walker]
 input_path = '~/.config/matugen/templates/colors.css'
@@ -39,7 +42,7 @@ gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}
 [templates.gtk4]
 input_path = '~/.config/matugen/templates/gtk-colors.css'
 output_path = '~/.config/gtk-4.0/colors.css'
-post_hook = 'pkill nautilus || true; systemctl --user restart xdg-desktop-portal-gtk'
+post_hook = '~/.config/matugen/scripts/gtk4.sh {{mode}}'
 
 [templates.qt5ct]
 input_path = '~/.config/matugen/templates/qtct-colors.conf'
@@ -62,7 +65,10 @@ output_path = '~/.local/state/quickshell/generated/colors.json'
 [templates.papirus]
 input_path = '/dev/null'
 output_path = '/dev/null'
-post_hook = '~/.local/bin/papirus-matugen "{{colors.primary_fixed_dim.default.hex}}" &'
+post_hook = '''
+~/.config/matugen/scripts/papirus.sh \
+"{{colors.primary_fixed_dim.default.hex}}" &
+'''
 
 [templates.tapo]
 input_path = '/dev/null'

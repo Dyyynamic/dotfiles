@@ -83,3 +83,8 @@ for size in $SIZES; do
 done
 
 wait
+
+# Refresh icon theme
+gsettings set org.gnome.desktop.interface icon-theme ''
+sleep 0.05
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
