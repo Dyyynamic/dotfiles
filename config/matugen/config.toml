@@ -42,7 +42,10 @@ gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}
 [templates.gtk4]
 input_path = '~/.config/matugen/templates/gtk-colors.css'
 output_path = '~/.config/gtk-4.0/colors.css'
-post_hook = '~/.config/matugen/scripts/gtk4.sh {{mode}}'
+post_hook = '''
+~/.config/matugen/scripts/gtk4.sh {{mode}};
+systemctl --user restart xdg-desktop-portal-gtk
+'''
 
 [templates.qt5ct]
 input_path = '~/.config/matugen/templates/qtct-colors.conf'
