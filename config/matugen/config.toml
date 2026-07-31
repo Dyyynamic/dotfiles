@@ -62,14 +62,14 @@ output_path = '~/.local/state/quickshell/generated/colors.json'
 [templates.papirus]
 input_path = '/dev/null'
 output_path = '/dev/null'
-post_hook = '~/.local/bin/papirus-matugen "{{colors.primary.default.hex}}" &'
+post_hook = '~/.local/bin/papirus-matugen "{{colors.primary_fixed_dim.default.hex}}" &'
 
 [templates.tapo]
 input_path = '/dev/null'
 output_path = '/dev/null'
 post_hook = '''
 tapo color \
-"{{colors.primary.default.red}}" \
-"{{colors.primary.default.green}}" \
-"{{colors.primary.default.blue}}" &
+"{{colors.primary_fixed_dim.default.red}}" \
+"{{colors.primary_fixed_dim.default.green}}" \
+"{{colors.primary_fixed_dim.default.blue}}" &
 '''
