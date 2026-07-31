@@ -73,7 +73,7 @@ hl.config({
 
         col = {
             active_border = colors.primary,
-            inactive_border = colors.surface_bright
+            inactive_border = colors.outline_variant
         },
 
         resize_on_border = true
@@ -85,8 +85,8 @@ hl.config({
         shadow = {
             range = 24,
             render_power = 2,
-            color = "rgba(00000050)",
-            color_inactive = "rgba(00000040)",
+            color = "rgba(0, 0, 0, 0.25)",
+            color_inactive = "rgba(0, 0, 0, 0.15)",
             offset = { 0, 2 }
         },
 
