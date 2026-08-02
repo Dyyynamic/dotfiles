@@ -23,6 +23,8 @@ local function generate_thumbnail(path, thumb_path)
         .. "' &")
 end
 
+local theme_mode = get_theme_mode()
+
 function GetEntries()
     local entries = {}
 
@@ -54,15 +56,13 @@ function GetEntries()
                 f:close()
             end
 
-            local mode = get_theme_mode()
-
             table.insert(entries, {
                 Text = name,
                 Value = file,
                 Icon = thumb_exists and thumb or "image-x-generic",
                 Preview = thumb,
                 Actions = {
-                    set = "matugen image '%VALUE%' --source-color-index 0 --mode " .. mode
+                    set = "matugen image '%VALUE%' --source-color-index 0 --mode " .. theme_mode
                 }
             })
         end
