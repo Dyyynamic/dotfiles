@@ -28,13 +28,13 @@ local terminal = "ghostty"
 local fileManager = "nautilus --new-window"
 local menu = "walker"
 local browser = "zen-browser"
-local osd = "swayosd-client --monitor " .. os.getenv("MAIN_MONITOR")
 local colorPicker = "hyprpicker -a"
 
 -- Quickshell
 local lock = "qs ipc call lockscreen lock"
 local controlCenter = "qs ipc call controlCenter toggle"
 local capture = "qs ipc call capture"
+local osd = "qs ipc call osd"
 
 
 -- AUTOSTART
@@ -49,8 +49,6 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("elephant")
     hl.exec_cmd("walker --gapplication-service")
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
-    hl.exec_cmd("swayosd-server")
-    hl.exec_cmd("playerctld daemon")
 
     -- Update notifier
     hl.exec_cmd("update-notifier")
@@ -287,30 +285,30 @@ hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Brightness controls
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(osd .. " --brightness raise"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(osd .. " --brightness lower"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(osd .. " brightness raise"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(osd .. " brightness lower"), { locked = true, repeating = true })
 
 -- Volume controls
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(osd .. " --output-volume raise"), { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(osd .. " --output-volume lower"), { locked = true, repeating = true })
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd(osd .. " --output-volume mute-toggle"), { locked = true, repeating = true })
-hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd(osd .. " --input-volume mute-toggle"), { locked = true, repeating = true })
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(osd .. " outputVolume raise"), { locked = true, repeating = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(osd .. " outputVolume lower"), { locked = true, repeating = true })
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd(osd .. " outputVolume toggleMute"), { locked = true, repeating = true })
+hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd(osd .. " inputVolume toggleMute"), { locked = true, repeating = true })
 
 -- Media controls
-hl.bind("XF86AudioNext", hl.dsp.exec_cmd("mediactl next"), { locked = true })
-hl.bind("XF86AudioPause", hl.dsp.exec_cmd("mediactl play-pause"), { locked = true })
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("mediactl play-pause"), { locked = true })
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("mediactl previous"), { locked = true })
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(osd .. " media previous"), { locked = true })
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(osd .. " media togglePlaying"), { locked = true })
+hl.bind("XF86AudioPause", hl.dsp.exec_cmd(osd .. " media togglePlaying"), { locked = true })
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd(osd .. " media next"), { locked = true })
 
-hl.bind(mainMod .. " + Comma", hl.dsp.exec_cmd("mediactl previous"), { locked = true })
-hl.bind(mainMod .. " + Period", hl.dsp.exec_cmd("mediactl play-pause"), { locked = true })
-hl.bind(mainMod .. " + Minus", hl.dsp.exec_cmd("mediactl next"), { locked = true })
+hl.bind(mainMod .. " + Comma", hl.dsp.exec_cmd(osd .. " media previous"), { locked = true })
+hl.bind(mainMod .. " + Period", hl.dsp.exec_cmd(osd .. " media togglePlaying"), { locked = true })
+hl.bind(mainMod .. " + Minus", hl.dsp.exec_cmd(osd .. " media next"), { locked = true })
 
-hl.bind(mainMod .. " + SHIFT + Comma", hl.dsp.exec_cmd("mediactl volume 0.05-"), { locked = true, repeating = true })
-hl.bind(mainMod .. " + SHIFT + Minus", hl.dsp.exec_cmd("mediactl volume 0.05+"), { locked = true, repeating = true })
+hl.bind(mainMod .. " + SHIFT + Comma", hl.dsp.exec_cmd(osd .. " media lowerVolume"), { locked = true, repeating = true })
+hl.bind(mainMod .. " + SHIFT + Minus", hl.dsp.exec_cmd(osd .. " media raiseVolume"), { locked = true, repeating = true })
 
 -- Caps lock
-hl.bind("CAPS + Caps_Lock", hl.dsp.exec_cmd(osd .. " --caps-lock"))
+hl.bind("CAPS + Caps_Lock", hl.dsp.exec_cmd(osd .. " capsLock"))
 
 
 -- WINDOWS AND WORKSPACES
@@ -368,15 +366,13 @@ hl.window_rule({
 
 -- Quickshell
 hl.layer_rule({
-    match = { namespace = "qs-control-center" },
-    no_anim = true
-})
-hl.layer_rule({
-    match = { namespace = "qs-notifications" },
-    no_anim = true
-})
-hl.layer_rule({
-    match = { namespace = "qs-capture" },
+    match = {
+        namespace =
+            "qs-control-center|" ..
+            "qs-notifications|" ..
+            "qs-capture|" ..
+            "qs-osd"
+    },
     no_anim = true
 })
 

@@ -49,7 +49,6 @@ quickshell
 starship
 stow
 sunsetr
-swayosd
 awww
 ttf-ms-fonts
 ttf-noto-nerd
