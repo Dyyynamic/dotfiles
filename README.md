@@ -21,6 +21,11 @@
 > [!IMPORTANT]
 > This script assumes a fresh Arch Linux installation with a running Hyprland session.
 
+> [!TIP]
+> When installing Arch, install Hyprland and greetd for a minimal starting
+point. Disable any other display managers (such as GDM or SDDM) to use the
+included greetd setup.
+
 Run the setup script:
 
 ```bash

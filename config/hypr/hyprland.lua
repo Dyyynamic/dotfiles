@@ -2,6 +2,7 @@ local colors = require("colors")
 require("monitors")
 require("default_apps")
 require("env")
+require("binds")
 
 -- Split monitor workspaces
 package.path = package.path .. ";./?.lua;./?/init.lua"
@@ -134,7 +135,10 @@ hl.config({
 
 hl.config({
     misc = {
-        focus_on_activate = true
+        focus_on_activate = true,
+        disable_hyprland_logo = true,
+        disable_splash_rendering = true,
+        background_color = "0x000000"
     }
 })
 

@@ -133,6 +133,29 @@ gsettings set org.gnome.gthumb.browser statusbar-visible false
 gsettings set org.gnome.gthumb.browser scroll-action 'zoom'
 gsettings set org.gnome.gthumb.image-viewer show-frame false
 
+echo "Setting up greeter..."
+
+sudo systemctl enable greetd.service
+
+sudo ln -sf "$DOTFILES/greetd/config.toml" "/etc/greetd/config.toml"
+sudo ln -sf "$DOTFILES/greetd/pam" "/etc/pam.d/greetd"
+
+# Create shared directory
+getent group greetd >/dev/null || sudo groupadd greetd
+sudo usermod -aG greetd $USER
+sudo usermod -aG greetd greeter
+sudo mkdir -p /var/lib/greetd
+sudo chown -R "${USER}:greetd" /var/lib/greetd
+sudo chmod 2750 /var/lib/greetd
+
+# Copy shared files
+sudo rm -rf "/var/lib/greetd/quickshell"
+cp -r "$QUICKSHELL" "/var/lib/greetd/quickshell"
+cp "$DOTFILES/assets/avatar.png" "/var/lib/greetd/avatar.png"
+cp "$DOTFILES/greetd/hyprland.lua" "/var/lib/greetd/hyprland.lua"
+cp "$HOST/config/hypr/monitors.lua" "/var/lib/greetd/monitors.lua"
+cp "$HOST/config/hypr/env.lua" "/var/lib/greetd/env.lua"
+
 echo "Applying theme..."
 
 # Start daemons

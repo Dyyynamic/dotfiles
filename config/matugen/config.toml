@@ -52,8 +52,9 @@ input_path = '~/.config/matugen/templates/zed-colors.json'
 output_path = '~/.config/zed/themes/matugen.json'
 
 [templates.quickshell]
+pre_hook = 'mkdir -p ~/.config/quickshell/generated'
 input_path = '~/.config/matugen/templates/quickshell.json'
-output_path = '~/.local/state/quickshell/generated/colors.json'
+output_path = '~/.config/quickshell/generated/colors.json'
 
 # Scripts
 
@@ -73,4 +74,14 @@ tapo color \
 "{{colors.primary_fixed_dim.default.red}}" \
 "{{colors.primary_fixed_dim.default.green}}" \
 "{{colors.primary_fixed_dim.default.blue}}" &
+'''
+
+[templates.greetd]
+input_path = '/dev/null'
+output_path = '/dev/null'
+post_hook = '''
+cp {{ image }} /var/lib/greetd/wallpaper.png &&
+mkdir -p /var/lib/greetd/quickshell/generated &&
+cp ~/.local/state/quickshell/generated/colors.json \
+/var/lib/greetd/quickshell/generated/colors.json
 '''
