@@ -183,17 +183,23 @@ setup_greeter() {
     # Copy shared files
     sudo rm -rf "/var/lib/greetd/quickshell"
     cp -r "$QUICKSHELL" "/var/lib/greetd/quickshell"
+
     cp "$DOTFILES/assets/avatar.png" "/var/lib/greetd/avatar.png"
     cp "$DOTFILES/greetd/hyprland.lua" "/var/lib/greetd/hyprland.lua"
-    cp "$HOST/config/hypr/monitors.lua" "/var/lib/greetd/monitors.lua"
-    cp "$HOST/config/hypr/env.lua" "/var/lib/greetd/env.lua"
+
+    if [[ -f "$HOST/config/hypr/monitors.lua" ]]; then
+        cp "$HOST/config/hypr/monitors.lua" "/var/lib/greetd/monitors.lua"
+    fi
+
+    if [[ -f "$HOST/config/hypr/env.lua" ]]; then
+        cp "$HOST/config/hypr/env.lua" "/var/lib/greetd/env.lua"
+    fi
 }
 
 apply_theme() {
     echo "Applying theme..."
 
     # Start daemons
-
     if ! pgrep -x awww-daemon >/dev/null; then
         awww-daemon &>/dev/null &
     fi
