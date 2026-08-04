@@ -172,13 +172,17 @@ setup_greeter() {
     sudo ln -sf "$DOTFILES/greetd/config.toml" "/etc/greetd/config.toml"
     sudo ln -sf "$DOTFILES/greetd/pam" "/etc/pam.d/greetd"
 
+    # Add user to greeter group
+    sudo usermod -aG greeter "$USER"
+
     # Create shared directory
-    getent group greetd >/dev/null || sudo groupadd greetd
-    sudo usermod -aG greetd $USER
-    sudo usermod -aG greetd greeter
     sudo mkdir -p /var/lib/greetd
-    sudo chown -R "${USER}:greetd" /var/lib/greetd
+    sudo chown -R "${USER}:greeter" /var/lib/greetd
     sudo chmod 2750 /var/lib/greetd
+
+    # Set ACLs so future copied files inherit the group ownership
+    sudo setfacl -m g:greeter:rX /var/lib/greetd
+    sudo setfacl -d -m g:greeter:rX /var/lib/greetd
 
     # Copy shared files
     sudo rm -rf "/var/lib/greetd/quickshell"
