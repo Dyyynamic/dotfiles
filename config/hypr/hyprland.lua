@@ -1,8 +1,8 @@
 local colors = require("colors")
-require("monitors")
-require("default_apps")
-require("env")
-require("binds")
+pcall(require, "monitors")
+pcall(require, "default_apps")
+pcall(require, "env")
+pcall(require, "binds")
 
 -- Split monitor workspaces
 package.path = package.path .. ";./?.lua;./?/init.lua"
