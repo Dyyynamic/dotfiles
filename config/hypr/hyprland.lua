@@ -185,6 +185,7 @@ hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(menu .. " --provider menus:wallpapers
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(menu .. " --provider clipboard"))
 hl.bind(mainMod .. " + X", hl.dsp.exec_cmd(menu .. " --provider menus:system"))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(controlCenter))
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 
 -- Screenshot
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(capture .. " screenshot region"))
