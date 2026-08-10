@@ -35,30 +35,43 @@ install_yay() {
     fi
 }
 
-clone_dotfiles() {
-    echo "Cloning dotfiles..."
+clone_repo() {
+    local name="$1"
+    local dir="$2"
 
+    if [[ ! -d "$dir/.git" ]]; then
+        echo "Cloning $name..."
+        git clone "https://github.com/Dyyynamic/dotfiles/$name.git" "$repo"
+        return
+    fi
+
+    echo "Updating $name..."
+
+    if [[ -n "$(git -C "$dir" status --porcelain)" ]]; then
+        echo "Local changes detected in $name, skipping..."
+        return
+    fi
+
+    git -C "$dir" pull --ff-only
+}
+
+clone_dotfiles() {
     mkdir -p "$HOME/.config"
 
-    if [[ ! -d "$DOTFILES" ]]; then
-        git clone https://github.com/Dyyynamic/dotfiles.git "$DOTFILES"
-    fi
+    clone_repo "dotfiles" "$DOTFILES"
+    clone_repo "shell" "$QUICKSHELL"
 
-    if [[ ! -d "$QUICKSHELL" ]]; then
-        echo "Cloning shell..."
-        git clone https://github.com/Dyyynamic/shell.git "$QUICKSHELL"
-    fi
-
-    if [[ ! -d "$WALLPAPERS" ]]; then
+    if [[ ! -d "$WALLPAPERS/.git" ]]; then
         read -rp "Clone wallpapers? [Y/n] " choice
         choice=${choice:-Y}
 
         if [[ "$choice" =~ ^[Yy]$ ]]; then
-            echo "Cloning wallpapers..."
-            git clone https://github.com/Dyyynamic/wallpapers.git "$WALLPAPERS"
+            clone_repo "wallpapers" "$WALLPAPERS"
         else
             mkdir -p "$WALLPAPERS"
         fi
+    else
+        clone_repo "wallpapers" "$WALLPAPERS"
     fi
 }
 
@@ -99,7 +112,7 @@ symlink_config() {
     echo "Symlinking config files..."
 
     # Remove default hyprland config
-    HYPRLAND="$HOME/.config/hypr/hyprland.conf"
+    HYPRLAND="$HOME/.config/hypr/hyprland.lua"
     if [[ -f "$HYPRLAND" && ! -L "$HYPRLAND" ]]; then
         rm "$HYPRLAND"
     fi
