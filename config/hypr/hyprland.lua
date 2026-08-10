@@ -17,7 +17,6 @@ hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 hl.env("SSH_AUTH_SOCK", os.getenv("XDG_RUNTIME_DIR") .. "/gcr/ssh")
 
-
 -- Ghostty dead keys
 -- https://github.com/ghostty-org/ghostty/discussions/8899#discussioncomment-14717979
 hl.env("GTK_IM_MODULE", "simple")
@@ -366,6 +365,18 @@ hl.window_rule({
 hl.window_rule({
     match = { class = ".*" },
     persistent_size = true
+})
+
+-- Banish phantom Xwayland windows to the shadow realm
+hl.window_rule({
+    match = {
+        title = "^$",
+        initial_title = "^$",
+        class = "^$|^steam_app_.*$",
+        initial_class = "^$|^steam_app_.*$",
+        xwayland = true,
+    },
+    workspace = "special:shadow-realm silent"
 })
 
 -- Quickshell
