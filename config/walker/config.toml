@@ -1,5 +1,8 @@
 theme = "Matugen"
 
+[providers.max_results_provider]
+"menus:wallpapers" = 500
+
 [[providers.prefixes]]
 prefix = ","
 provider = "unicode"
