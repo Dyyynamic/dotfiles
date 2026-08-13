@@ -24,7 +24,7 @@ hl.env("GTK_IM_MODULE", "simple")
 
 -- MY PROGRAMS
 
-local terminal = "ghostty"
+local terminal = "ghostty --gtk-single-instance=true"
 local fileManager = "nautilus --new-window"
 local menu = "walker"
 local browser = "zen-browser"
@@ -49,6 +49,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("elephant")
     hl.exec_cmd("walker --gapplication-service")
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
+    hl.exec_cmd("ghostty --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false")
 
     -- Update notifier
     hl.exec_cmd("update-notifier")
