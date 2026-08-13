@@ -8,6 +8,7 @@ choices=(
     "yorha"
     "arasaka"
     "teto"
+    "nocturnal"
 )
 
 get_quote() {
@@ -26,6 +27,9 @@ get_quote() {
             ;;
         teto)
             echo "恋をして　ふられ　また　捨てられて"
+            ;;
+        nocturnal)
+            echo "MANKIND IS DEAD. BLOOD IS FUEL. HELL IS FULL."
             ;;
     esac
 }
