@@ -8,15 +8,15 @@
 
 ## Components
 
-| Component     | Name                                                        |
-| ------------- | ----------------------------------------------------------- |
-| Compositor    | [Hyprland](https://hypr.land/)                              |
-| Desktop Shell | [Quickshell](https://github.com/Dyyynamic/shell)            |
-| Launcher      | [Walker](https://github.com/abenz1267/walker)               |
-| Wallpaper     | [Awww](https://codeberg.org/LGFae/awww)                     |
-| Theme         | [Matugen](https://github.com/InioX/matugen)                 |
-| Terminal      | [Ghostty](https://ghostty.org/)                             |
-| Shell         | Zsh + [Starship](https://starship.rs/)                      |
+| Component     | Name                                                                                            |
+| ------------- | ----------------------------------------------------------------------------------------------- |
+| Compositor    | [Hyprland](https://hypr.land/)                                                                  |
+| Desktop Shell | [Quickshell](https://quickshell.org/) ([config](https://github.com/Dyyynamic/shell))            |
+| Launcher      | [Walker](https://github.com/abenz1267/walker)                                                   |
+| Wallpaper     | [Awww](https://codeberg.org/LGFae/awww) ([wallpapers](https://github.com/Dyyynamic/wallpapers)) |
+| Theme         | [Matugen](https://github.com/InioX/matugen)                                                     |
+| Terminal      | [Ghostty](https://ghostty.org/)                                                                 |
+| Shell         | Zsh + [Starship](https://starship.rs/)                                                          |
 
 ## Installation
 
