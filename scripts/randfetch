@@ -9,6 +9,7 @@ choices=(
     "arasaka"
     "teto"
     "nocturnal"
+    "aperture"
 )
 
 get_quote() {
@@ -30,6 +31,9 @@ get_quote() {
             ;;
         nocturnal)
             echo "MANKIND IS DEAD. BLOOD IS FUEL. HELL IS FULL."
+            ;;
+        aperture)
+            echo "We do what we must because we can."
             ;;
     esac
 }
