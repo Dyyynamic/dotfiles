@@ -9,27 +9,31 @@ from dotenv import load_dotenv
 from tapo import ApiClient
 
 HUE_CALIBRATION = [
-    (0, 0),
-    (8, 3),  # too orange -> more red
+    (0, -10),  # too orange -> more red
     (15, 8),  # too yellow -> more red
-    (30, 13),  # too yellow -> more orange
-    (50, 30),  # too green -> more yellow
+    (30, 15),  # too yellow -> more orange
+    (50, 40),  # too green -> more yellow
+    (90, 100),  # too yellow -> more green
     (150, 150),  # perfect
     (180, 200),  # too green -> more blue
-    (220, 235),  # too cyan -> more blue
+    (220, 230),  # too cyan -> more blue
     (250, 242),  # too purple -> more blue
-    (270, 255),  # too magenta -> more blue
-    (300, 300),  # perfect
-    (350, 355),  # too magenta -> more red
-    (360, 360),
+    (270, 245),  # too magenta -> more blue
+    (330, 300),  # too magenta -> more blue
+    (350, 345),  # too magenta -> more red
+    (360, 350),  # too orange -> more red
 ]
 
 SATURATION_CALIBRATION = [
-    (0, 1),  # perfect
+    (0, 0.9),  # less saturation
+    (8, 0.65),  # less saturation
     (30, 0.85),  # less saturation
+    (140, 0.75),  # less saturation
     (180, 1),  # perfect
+    (240, 1.75),  # more saturation
     (270, 1.5),  # more saturation
-    (360, 1),  # perfect
+    (300, 1.75),  # more saturation
+    (360, 0.9),  # less saturation
 ]
 
 
@@ -37,7 +41,7 @@ def calibrate_hue(input_hue: int) -> int:
     input_hue = input_hue % 360
 
     xp, fp = zip(*HUE_CALIBRATION)
-    calibrated_hue = int(np.interp(input_hue, xp, fp))
+    calibrated_hue = int(np.interp(input_hue, xp, fp)) % 360
 
     return calibrated_hue
 
