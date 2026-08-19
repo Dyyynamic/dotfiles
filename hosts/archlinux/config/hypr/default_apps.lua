@@ -13,4 +13,3 @@ hl.window_rule({
     match = { class = "Spotify" },
     workspace = "7 silent"
 })
-

@@ -49,7 +49,10 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("elephant")
     hl.exec_cmd("walker --gapplication-service")
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
+
+    -- Background applications
     hl.exec_cmd("ghostty --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false")
+    hl.exec_cmd("nautilus", { workspace = "special:background silent" })
 
     -- Update notifier
     hl.exec_cmd("update-notifier")
