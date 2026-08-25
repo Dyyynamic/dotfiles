@@ -161,6 +161,10 @@ hl.config({
             natural_scroll = true
         }
     },
+
+    binds = {
+        scroll_event_delay = 0
+    }
 })
 
 hl.gesture({
@@ -284,8 +288,8 @@ hl.bind(mainMod .. " + SHIFT + ALT + left", smw.move_to_workspace("-1"))
 hl.bind(mainMod .. " + SHIFT + ALT + right", smw.move_to_workspace("+1"))
 
 -- Scroll through existing workspaces with mainMod + scroll
-hl.bind(mainMod .. " + mouse_down", smw.workspace("-1"))
-hl.bind(mainMod .. " + mouse_up", smw.workspace("+1"))
+hl.bind(mainMod .. " + mouse_up", smw.workspace("-1"))
+hl.bind(mainMod .. " + mouse_down", smw.workspace("+1"))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
