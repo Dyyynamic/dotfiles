@@ -162,6 +162,7 @@ enable_systemd_services() {
 
     systemctl --user enable --now tapo.service
     systemctl --user enable --now gcr-ssh-agent.socket
+    systemctl --user enable --now yaycache.timer
     sudo systemctl enable --now paccache.timer
     sudo systemctl enable --now systemd-oomd
 }

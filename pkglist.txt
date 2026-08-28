@@ -57,6 +57,7 @@ walker
 wf-recorder
 xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
+yaycache
 zed
 zen-browser-bin
 zsh
