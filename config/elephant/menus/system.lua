@@ -1,9 +1,6 @@
 Name = "system"
 NamePretty = "System"
 Icon = "system-shutdown"
-Terminal = false
-Cache = false
-
 Action = "%VALUE%"
 
 function GetEntries()

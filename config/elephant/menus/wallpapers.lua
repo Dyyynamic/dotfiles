@@ -1,8 +1,6 @@
 Name = "wallpapers"
 NamePretty = "Wallpapers"
 Icon = "preferences-desktop-wallpaper"
-Terminal = false
-Cache = false
 
 local function get_theme_mode()
     local handle = io.popen("gsettings get org.gnome.desktop.interface color-scheme")
