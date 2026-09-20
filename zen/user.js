@@ -7,3 +7,4 @@ user_pref("zen.window-sync.open-link-in-new-unsynced-window", false);
 user_pref("zen.tabs.dnd-open-blank-window", false);
 user_pref("browser.tabs.closeWindowWithLastTab", true);
 user_pref("browser.toolbars.bookmarks.visibility", "never");
+user_pref("middlemouse.paste", false);
