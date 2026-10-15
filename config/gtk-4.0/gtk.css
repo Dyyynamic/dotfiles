@@ -1,5 +1,9 @@
-@import 'colors.css';
+@import "colors.css";
 
 .nautilus-window statuspage {
     background-color: transparent;
+}
+
+window {
+    backdrop-filter: blur(20px);
 }
